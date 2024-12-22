@@ -7,3 +7,6 @@
 
 # MIXUE Ordering System
 
+
+#ER Diagram
+![food app drawio](https://github.com/user-attachments/assets/0f239c9a-22d6-4c0b-adfe-14f0cfd0c43d)
