@@ -16,4 +16,5 @@
 ![Alt text](sequenceDiagram.jpg?raw=true)
 
 # Mock Up
+![Alt text](mixue_login.jpg?raw=true)
 
