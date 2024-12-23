@@ -13,7 +13,7 @@
 ![food app drawio (1)](https://github.com/user-attachments/assets/9038ca9d-9a92-49ee-8e76-fe1e14c8933e)
 
 # Sequence Diagram
-![Alt text](sequenceDiagram.jpg?raw=true)
+![Alt text](seqDiagram.jpeg?raw=true)
 
 # Mock Up
 ### 1. Login page
