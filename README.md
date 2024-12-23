@@ -17,4 +17,10 @@
 
 # Mock Up
 ![Alt text](mixue_login.png?raw=true)
+![Alt text](mixue_register.png?raw=true)
+![Alt text](mixue_register2.png?raw=true)
+![Alt text](mixue_home.png?raw=true)
+![Alt text](mixue_product.png?raw=true)
+![Alt text](mixue_cart.png?raw=true)
+![Alt text](mixue_cartsummary.png?raw=true)
 
