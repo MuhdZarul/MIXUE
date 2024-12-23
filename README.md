@@ -17,6 +17,7 @@
 
 # Mock Up
 ![Alt text](mixue_login.png?raw=true)
+<p align="center">
 Login page
 ![Alt text](mixue_register.png?raw=true)
 ![Alt text](mixue_register2.png?raw=true)
