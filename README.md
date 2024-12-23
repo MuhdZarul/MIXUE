@@ -17,13 +17,18 @@
 
 # Mock Up
 ![Alt text](mixue_login.png?raw=true)
-<p align="center">
-Login page
+### Login page
 ![Alt text](mixue_register.png?raw=true)
+### Register page
 ![Alt text](mixue_register2.png?raw=true)
 ![Alt text](mixue_home.png?raw=true)
+### Home page
 ![Alt text](mixue_product.png?raw=true)
+### Menu Page
 ![Alt text](mixue_cart.png?raw=true)
+### Cart Page
 ![Alt text](mixue_cartsummary.png?raw=true)
+### Payment Page
 ![Alt text](mixue_receipt.png?raw=true)
+### Receipt Page
 
