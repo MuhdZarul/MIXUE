@@ -23,4 +23,5 @@
 ![Alt text](mixue_product.png?raw=true)
 ![Alt text](mixue_cart.png?raw=true)
 ![Alt text](mixue_cartsummary.png?raw=true)
+![Alt text](mixue_receipt.png?raw=true)
 
