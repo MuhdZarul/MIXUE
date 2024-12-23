@@ -16,25 +16,25 @@
 ![Alt text](sequenceDiagram.jpg?raw=true)
 
 # Mock Up
-### Login page
+### 1. Login page
 ![Alt text](mixue_login.png?raw=true)
-### Register page
+### 2. Register page
 ![Alt text](mixue_register.png?raw=true)
-### Registered Page
+### 3. Registered Page
 ![Alt text](mixue_register2.png?raw=true)
-### Home page
+### 4. Home page
 ![Alt text](mixue_home.png?raw=true)
-### Menu Page
+### 5. Menu Page
 ![Alt text](mixue_product.png?raw=true)
-### Cart Page
+### 6. Cart Page
 ![Alt text](mixue_cart.png?raw=true)
-### Payment Page
+### 7. Payment Page
 ![Alt text](mixue_cartsummary.png?raw=true)
-### Receipt Page
+### 8. Receipt Page
 ![Alt text](mixue_receipt.png?raw=true)
-### Delivery Page
+### 9. Delivery Page
 ![Alt text](mixue_delivery.png?raw=true)
-### Admin Page
+### 10. Admin Page
 ![Alt text](mixue_addnew.png?raw=true)
 
 
