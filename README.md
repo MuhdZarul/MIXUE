@@ -14,3 +14,6 @@
 
 # Sequence Diagram
 ![Alt text](sequenceDiagram.jpg?raw=true)
+
+# Mock Up
+
