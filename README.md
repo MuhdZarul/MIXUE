@@ -35,6 +35,10 @@
 ### 9. Delivery Page
 ![Alt text](mixue_delivery.png?raw=true)
 ### 10. Admin Page
-![Alt text](mixue_addnew.png?raw=true)
-
+#### a. Add Item
+![Alt text](ADMIN_DASHBOARD(ADD).png?raw=true)
+#### b. Update Item
+![Alt text](ADMIN_DASHBOARD(UPDATE).png?raw=true)
+#### c. Delete Item
+![Alt text](ADMIN_DASHBOARD(DELETE).png?raw=true)
 
