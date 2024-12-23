@@ -16,24 +16,25 @@
 ![Alt text](sequenceDiagram.jpg?raw=true)
 
 # Mock Up
-![Alt text](mixue_login.png?raw=true)
 ### Login page
-![Alt text](mixue_register.png?raw=true)
+![Alt text](mixue_login.png?raw=true)
 ### Register page
-![Alt text](mixue_register2.png?raw=true)
+![Alt text](mixue_register.png?raw=true)
 ### Registered Page
-![Alt text](mixue_home.png?raw=true)
+![Alt text](mixue_register2.png?raw=true)
 ### Home page
-![Alt text](mixue_product.png?raw=true)
+![Alt text](mixue_home.png?raw=true)
 ### Menu Page
-![Alt text](mixue_cart.png?raw=true)
+![Alt text](mixue_product.png?raw=true)
 ### Cart Page
-![Alt text](mixue_cartsummary.png?raw=true)
+![Alt text](mixue_cart.png?raw=true)
 ### Payment Page
-![Alt text](mixue_receipt.png?raw=true)
+![Alt text](mixue_cartsummary.png?raw=true)
 ### Receipt Page
-![Alt text](mixue_delivery.png?raw=true)
+![Alt text](mixue_receipt.png?raw=true)
 ### Delivery Page
-![Alt text](mixue_addnew.png?raw=true)
+![Alt text](mixue_delivery.png?raw=true)
 ### Admin Page
+![Alt text](mixue_addnew.png?raw=true)
+
 
