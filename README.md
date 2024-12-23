@@ -21,6 +21,7 @@
 ![Alt text](mixue_register.png?raw=true)
 ### Register page
 ![Alt text](mixue_register2.png?raw=true)
+### Registered Page
 ![Alt text](mixue_home.png?raw=true)
 ### Home page
 ![Alt text](mixue_product.png?raw=true)
@@ -31,4 +32,8 @@
 ### Payment Page
 ![Alt text](mixue_receipt.png?raw=true)
 ### Receipt Page
+![Alt text](mixue_delivery.png?raw=true)
+### Delivery Page
+![Alt text](mixue_addnew.png?raw=true)
+### Admin Page
 
