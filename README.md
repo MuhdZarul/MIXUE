@@ -95,3 +95,8 @@ D: Remove delivery records if necessary
 #### c. Delete Item
 ![Alt text](ADMIN_DASHBOARD(DELETE).png?raw=true)
 
+# Reference
+1. MIXUE Malaysia. (2024). Mixue.com. https://my.mixue.com/
+2. Discover the best frozen yogurt | llaollao. (n.d.). Llaollao. https://www.llaollaoweb.com/en/
+3. Loob Holding Sdn. Bhd. (2017). Tealive. Tealive.com.my. https://www.tealive.com.my/
+‌
