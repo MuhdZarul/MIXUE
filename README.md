@@ -35,7 +35,7 @@ C: Users register for accounts </br>
 R: User view profile </br>
 U: Users update account details </br>
 D: Admin deletes inactive accounts 
-### 2. Food management
+### 2. Menu management
 C: Admin adds a new product </br>
 R: Customer and admin can view menu items </br>
 U: Admin edits product details </br>
