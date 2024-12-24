@@ -76,17 +76,17 @@ D: Remove delivery records if necessary
 ### 3. Registered Page
 ![Alt text](mixue_register2.png?raw=true)
 ### 4. Home page
-![Alt text](mixue_home.png?raw=true)
+![Alt text](mixuehome.png?raw=true)
 ### 5. Menu Page
-![Alt text](mixue_product.png?raw=true)
+![Alt text](mixuemenu.png?raw=true)
 ### 6. Cart Page
-![Alt text](mixue_cart.png?raw=true)
+![Alt text](mixuecart.png?raw=true)
 ### 7. Payment Page
-![Alt text](mixue_cartsummary.png?raw=true)
+![Alt text](mixuepayment.png?raw=true)
 ### 8. Receipt Page
-![Alt text](mixue_receipt.png?raw=true)
+![Alt text](mixuereceipt.png?raw=true)
 ### 9. Delivery Page
-![Alt text](mixue_delivery.png?raw=true)
+![Alt text](mixuedelivery.png?raw=true)
 ### 10. Admin Page
 #### a. Add Item
 ![Alt text](ADMIN_DASHBOARD(ADD).png?raw=true)
