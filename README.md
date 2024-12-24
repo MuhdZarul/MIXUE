@@ -7,16 +7,16 @@
 
 # MIXUE Ordering System
 
-#1.0 INTRODUCTION
+# INTRODUCTION
 
-	For the chain brand MIXUE, which is popular for its trendy ice cream and freshly brewed tea drinks, our group proposed a web application ordering system. The application, which will be created with the Laravel framework, attempts to give MIXUE customers a convenient and effective way to place online orders.
+For the chain brand MIXUE, which is popular for its trendy ice cream and freshly brewed tea drinks, our group proposed a web application ordering system. The application, which will be created with the Laravel framework, attempts to give MIXUE customers a convenient and effective way to place online orders.
 
 The application allows for a seamless interaction between the user interface, business logic, and data management by utilizing Laravel's Model-View-Controller (MVC) architecture. We'll integrate features like secure checkout, real-time order tracking, and easy-to-use navigation. Important Laravel technologies will speed up development and provide a stable and dependable system, such as PHP Artisan CLI for command-line interactions, Blade Templating Engine for dynamic views, and Eloquent ORM for database administration.
 
 The system fills a significant gap in MIXUE's digital strategy by addressing the company's lack of an online ordering platform. In addition to improving customer convenience, this platform will maximize MIXUE's operational effectiveness and increase its sales in the competitive ice cream and beverage industry.
 
 
-#2.0 OBJECTIVES
+# OBJECTIVES
 
 The primary objectives of the MIXUE Ordering System web application are:
 
