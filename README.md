@@ -7,6 +7,38 @@
 
 # MIXUE Ordering System
 
+# Features and Functionalities
+Our proposed features and functionalities for this system are as follows:
+### 1. User authentication
+C: Users register for accounts </br>
+R: User view profile </br>
+U: Users update account details </br>
+D: Admin deletes inactive accounts 
+### 2. Food management
+C: Admin adds a new product </br>
+R: Customer and admin can view menu items </br>
+U: Admin edits product details </br>
+D: Admin removes discontinued menu </br>
+### 3.Order management
+C: Customers place new orders </br>
+R: Customers and admin view order details </br>
+U: Admin updates order status </br>
+D: Customers cancel their orders before making confirmation
+### 4. Cart 
+C: Customers add items to their cart </br>
+R: Customers view cart contents </br>
+U: Customers update item quantities </br>
+D: Customers remove items from the cart
+### 5. Transaction
+C: Insert new transaction records when an order is placed </br>
+R: Customers and admin can view transaction history </br>
+U: Admin modify existing transaction details </br>
+D: Remove transaction records if necessary 
+### 6. Delivery
+C: Record new delivery details when an order is scheduled for delivery </br>
+R: View delivery details </br>
+U: Update delivery status or details </br>
+D: Remove delivery records if necessary
 
 
 # ER Diagram
