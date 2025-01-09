@@ -1,11 +1,11 @@
 # Group Member
 1. MUHAMMAD ZARUL HAFIZZUDDIN BIN MOHD ZAIDI (2215331)
 2. NURDIYANA SHAHIRAH BINTI AZLAN (2210236)
-3. HAZIQ EMIR BIN  MOHSIN (2216379)
+3. HAZIQ EMIR BIN  MOHSIN (2216379) hehe
 4. AZWA NURNISYA BINTI AYUB (2217418)
 5. NOR AZREEN BINTI ASARI (2217638)
 
-# MIXUE Ordering System!!!
+# MIXUE Ordering System
 
 # Introduction
 
@@ -66,34 +66,34 @@ D: Remove delivery records if necessary
 ![food app drawio (1)](https://github.com/user-attachments/assets/9038ca9d-9a92-49ee-8e76-fe1e14c8933e)
 
 # Sequence Diagram
-![Alt text](seqDiagram.jpeg?raw=true)
+![Alt text](images/seqDiagram.jpeg)
 
 # Mock Up
 ### 1. Login page
-![Alt text](mixue_login.png?raw=true)
+![Alt text](images/mixue_login.png)
 ### 2. Register page
-![Alt text](mixue_register.png?raw=true)
+![Alt text](images/mixue_register.png)
 ### 3. Registered Page
-![Alt text](mixue_register2.png?raw=true)
+![Alt text](images/mixue_register2.png)
 ### 4. Home page
-![Alt text](mixuehome.png?raw=true)
+![Alt text](images/mixuehome.png)
 ### 5. Menu Page
-![Alt text](mixuemenu.png?raw=true)
+![Alt text](images/mixuemenu.png))
 ### 6. Cart Page
-![Alt text](mixuecart.png?raw=true)
+![Alt text](images/mixuecart.png)
 ### 7. Payment Page
-![Alt text](mixuepayment.png?raw=true)
+![Alt text](images/mixuepayment.png)
 ### 8. Receipt Page
-![Alt text](mixuereceipt.png?raw=true)
+![Alt text](images/mixuereceipt.png)
 ### 9. Delivery Page
-![Alt text](mixuedelivery.png?raw=true)
+![Alt text](images/mixuedelivery.png)
 ### 10. Admin Page
 #### a. Add Item
-![Alt text](ADMIN_DASHBOARD(ADD).png?raw=true)
+![Alt text](images/ADMIN_DASHBOARD(ADD).png)
 #### b. Update Item
-![Alt text](ADMIN_DASHBOARD(UPDATE).png?raw=true)
+![Alt text](images/ADMIN_DASHBOARD(UPDATE).png)
 #### c. Delete Item
-![Alt text](ADMIN_DASHBOARD(DELETE).png?raw=true)
+![Alt text](images/ADMIN_DASHBOARD(DELETE).png)
 
 # References
 1. MIXUE Malaysia. (2024). Mixue.com. https://my.mixue.com/
