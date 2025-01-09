@@ -68,6 +68,7 @@ D: Remove delivery records if necessary
 # Sequence Diagram
 ![Alt text](images/seqDiagram.jpeg)
 
+
 # Mock Up
 ### 1. Login page
 ![Alt text](images/mixue_login.png)
