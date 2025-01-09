@@ -70,7 +70,7 @@ D: Remove delivery records if necessary
 
 # Mock Up
 ### 1. Login page
-![Alt text](mixue_login.png?raw=true)
+![Alt text](images/mixue_login.png)
 ### 2. Register page
 ![Alt text](mixue_register.png?raw=true)
 ### 3. Registered Page
