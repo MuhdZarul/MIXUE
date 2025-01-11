@@ -37,11 +37,6 @@
     </style>
 </head>
 <body>
-    <div class="hero-section">
-        <div class="search-container">
-            <input type="text" placeholder="Search..." />
-        </div>
-    </div>
 
 </body>
 </html>
