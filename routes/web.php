@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeliveryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/deliveries', [DeliveryController::class, 'index'])->name('deliveries.index');
+Route::post('/deliveries', [DeliveryController::class, 'store'])->name('deliveries.store');
+
