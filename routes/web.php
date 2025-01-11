@@ -22,6 +22,6 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('', [DeliveryController::class, 'index'])->name('deliveries.index');
+Route::get('/deliveries', [DeliveryController::class, 'index'])->name('deliveries.index');
 Route::post('/deliveries', [DeliveryController::class, 'store'])->name('deliveries.store');
 
