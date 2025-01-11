@@ -35,29 +35,9 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 25px;
+            font-size: 20px;
         }
-        .search-bar {
-            margin: 20px auto;
-            text-align: center;
-        }
-        .search-bar input {
-            width: 80%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        /* .product-images {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .product-images img {
-            width: 150px;
-            border-radius: 10px;
-        } */
+    
         .logo {
             width: 250px;
             height: auto;
@@ -109,23 +89,12 @@
             <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">MENU</a></li>
-                <li><a href="#"><img src="{{ asset('images/cart-icon.png') }}" alt="Cart" style="height: 20px;"></a></li>
-                <li><a href="#"><img src="{{ asset('images/profile-icon.png') }}" alt="Profile" style="height: 20px;"></a></li>
+                <li><a href="#"><img src="assets/img/shopping-cart.png" alt="Cart" style="height: 20px;"></a></li>
+                <li><a href="#"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Search...">
-    </div>
-
-    <!-- <div class="product-images">
-        <img src="{{ asset('images/product1.jpg') }}" alt="Product 1">
-        <img src="{{ asset('images/product2.jpg') }}" alt="Product 2">
-        <img src="{{ asset('images/product3.jpg') }}" alt="Product 3">
-        <img src="{{ asset('images/product4.jpg') }}" alt="Product 4">
-        <img src="{{ asset('images/product5.jpg') }}" alt="Product 5">
-    </div> -->
 @yield('content')
     <footer>
         <div class="footer-content">
