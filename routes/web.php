@@ -16,7 +16,7 @@ use App\Http\Controllers\DeliveryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
 Route::get('/deliveries', [DeliveryController::class, 'index'])->name('deliveries.index');
