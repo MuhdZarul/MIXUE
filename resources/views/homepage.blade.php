@@ -12,7 +12,7 @@
         .hero-section {
                 position: relative;
                 width: 100%;
-                height: 500px; /* Adjust height as needed */
+                height: 100vh; /* Full viewport height */ /* Adjust height as needed */
                 background: url('assets/img/mixue_home.png') no-repeat center center;
                 background-size: cover;
             }
