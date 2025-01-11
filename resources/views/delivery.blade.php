@@ -15,18 +15,70 @@
         header {
             background-color: #b30000; /* Deep red header */
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 10PX 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         header img {
-            width: 120px; /* Adjust size of the logo */
-            margin-bottom: 10px;
+            height: 50px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
+        .logo {
+            width: 250px;
+            height: auto;
         }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        footer .footer-section {
+            margin: 10px 0;
+            width: 30%;
+        }
+        footer .footer-section h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        footer .footer-section p, footer .footer-section a {
+            margin: 5px 0;
+            color: #ccc;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        footer .footer-section a:hover {
+            color: white;
+        }
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
         .container {
             max-width: 800px;
             margin: 30px auto;
@@ -35,7 +87,7 @@
             border: 2px solid #b30000; /* Red border for emphasis */
             border-radius: 10px;
         }
-        .form-container {
+        /*.form-container {
             margin-bottom: 30px;
         }
         form {
@@ -65,7 +117,7 @@
         button:hover {
             background-color: #990000; /* Darker red on hover */
             transform: scale(1.05);
-        }
+        }*/
         table {
             width: 100%;
             border-collapse: collapse;
@@ -97,20 +149,23 @@
 </head>
 <body>
     <header>
-        <img src="mixue.jpg" alt="Logo">
-        <h1 class="sitename">Deliveries</h1>
-        <!--<a href="index.html" class="logo d-flex align-items-center">-->
+        <header>
+            <div>
+                <img src="assets/img/mixue_logo.png" alt="Mixue Logo" class="logo"> <!-- Replace with your logo path -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="/deliveries">DELIVERY</a></li>
+                    <li><a href="#"><img src="assets/img/shopping-cart.png" alt="Cart" style="height: 20px;"></a></li>
+                    <li><a href="#"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="/" class="active">Home<br></a></li>
-                <!--<li><a href="/students">Student</a></li>-->
-            </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-    </div>
+
     </header>
     <div class="container">
         <!-- Success Message -->
