@@ -13,7 +13,7 @@
             padding: 0;
         }
         header {
-            background-color: #b30000; /* Deep red header */
+            background-color: #e60000; /* Deep red header */
             color: white;
             padding: 10PX 20px;
             display: flex;
@@ -77,15 +77,47 @@
             font-size: 12px;
             color: #aaa;
         }
-
         .container {
             max-width: 800px;
             margin: 30px auto;
             padding: 20px;
             background-color: white; /* White background for content */
             border: 2px solid #b30000; /* Red border for emphasis */
-            border-radius: 10px;
-        }
+            border-radius: 50px;
+           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Deeper main shadow */
+                        0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle secondary shadow */
+           }
+
+           .progress-bar-container {
+    width: 100%;
+    background-color: #ffe5e5; /* Light red background for progress bar */
+    border: 2px solid #b30000; /* Red border for emphasis */
+    border-radius: 25px;
+    margin: 20px 0;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    width: 50%; /* Set this dynamically based on progress */
+    height: 100%;
+    background-color: #b30000; /* Deep red color for the filled part */
+    border-radius: 25px 0 0 25px; /* Round the left side of the bar */
+    transition: width 0.5s ease-in-out; /* Smooth animation */
+}
+
+.progress-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #b30000; /* Deep red for text */
+    font-size: 14px;
+}
+
         /*.form-container {
             margin-bottom: 30px;
         }
@@ -102,7 +134,9 @@
             border: 1px solid #b30000; /* Red border */
             border-radius: 5px;
             font-size: 16px;
-        }
+}*/
+
+
         textarea {
             resize: none;
         }
@@ -215,6 +249,11 @@
                     @endforeach
                 </tbody>
             </table>-->
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 75%;"></div> <!-- Set width dynamically -->
+                <span class="progress-label">75% Complete</span>
+            </div>
+
                 <h3>Delivery ID : {{ $delivery->id }}</h3>
                 <h3>Name : {{ $delivery->customer_name }}</h3>
                 <h3>Address : {{ $delivery->address }}</h3>
