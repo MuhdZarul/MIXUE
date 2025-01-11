@@ -87,9 +87,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">MENU</a></li>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/menu">MENU</a></li>
                 <li><a href="/deliveries">DELIVERY</a></li>
+                <li><a href="/admin">ADMIN</a></li>
                 <li><a href="#"><img src="assets/img/shopping-cart.png" alt="Cart" style="height: 20px;"></a></li>
                 <li><a href="#"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
             </ul>
