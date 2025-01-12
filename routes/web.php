@@ -21,7 +21,7 @@ use App\Http\Controllers\menuController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('homepage');
 });
 

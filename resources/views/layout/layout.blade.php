@@ -87,7 +87,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/">HOME</a></li>
+                <li><a href="/home">HOME</a></li>
                 <li><a href="/menu">MENU</a></li>
                 <li><a href="/deliveries">DELIVERY</a></li>
                 <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" alt="Cart" style="height: 20px;"></a></li>
