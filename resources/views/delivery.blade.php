@@ -211,12 +211,12 @@
         <div class="table-container">
             <div class="delivery-header">
                 <h1>Delivery</h1>
-                <img src="/assets/img/delivery-icon-9.png" alt="Delivery Icon" class="delivery-logo">
+                <!--<img src="/assets/img/delivery-icon-9.png" alt="Delivery Icon" class="delivery-logo">---->
             </div>
 
             @foreach($deliveries as $delivery)
             @endforeach
-
+            `
 
             <div class="progress-bar-container">
                 <div class="progress-bar" style="width: {{ $delivery->status }}%;"></div>
