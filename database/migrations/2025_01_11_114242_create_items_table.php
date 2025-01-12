@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('Food_ID',10);
-            $table->string('Food_Name',30);
-            $table->string('Description',150);
-            $table->float('Price',5,2);
-            $table->string('image')->nullable(); // Store image URL
+            $table->string('name'); // Item name
+            $table->decimal('price', 8, 2); // Item price
             $table->timestamps();
-
         });
+
     }
 
     /**
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('items');
     }
 };

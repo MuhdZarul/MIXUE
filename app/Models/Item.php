@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
-{
+class Item extends Model {
     use HasFactory;
-    protected $fillable = ['Food_ID','Food_Name', 'Description', 'Price','image'];
 
+    protected $fillable = ['name', 'price', 'image_url'];
 }
+
