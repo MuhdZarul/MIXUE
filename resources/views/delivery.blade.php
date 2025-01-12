@@ -20,9 +20,6 @@
             justify-content: space-between;
             align-items: center;
         }
-        header img {
-            height: 50px;
-        }
         nav ul {
             list-style: none;
             display: flex;
@@ -84,41 +81,40 @@
             background-color: white; /* White background for content */
             border: 2px solid #b30000; /* Red border for emphasis */
             border-radius: 50px;
-           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Deeper main shadow */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Deeper main shadow */
                         0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle secondary shadow */
            }
 
-           .progress-bar-container {
-    width: 100%;
-    background-color: #ffe5e5; /* Light red background for progress bar */
-    border: 2px solid #b30000; /* Red border for emphasis */
-    border-radius: 25px;
-    margin: 20px 0;
-    height: 30px;
-    overflow: hidden;
-    position: relative;
-}
+        .progress-bar-container {
+            width: 100%;
+            background-color: #ffe5e5; /* Light red background for progress bar */
+            border: 2px solid #b30000; /* Red border for emphasis */
+            border-radius: 25px;
+            margin: 20px 0;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+        }
 
-.progress-bar {
-    width: 50%; /* Set this dynamically based on progress */
-    height: 100%;
-    background-color: #b30000; /* Deep red color for the filled part */
-    border-radius: 25px 0 0 25px; /* Round the left side of the bar */
-    transition: width 0.5s ease-in-out; /* Smooth animation */
-}
+        .progress-bar {
+                width: 60%; /* Set this dynamically based on progress */
+                height: 100%;
+                background-color: #3bd10d; /* Deep red color for the filled part */
+                border-radius: 25px 0 0 25px; /* Round the left side of the bar */
+        }
 
-.progress-label {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: bold;
-    color: #b30000; /* Deep red for text */
-    font-size: 14px;
-}
+        .progress-label {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                top: 50%;
+                transform: translateY(-50%);
+                font-weight: bold;
+                color: #000000; /* Deep red for text */
+                font-size: 20px;
+        }
 
-        /*.form-container {
+        .form-container {
             margin-bottom: 30px;
         }
         form {
@@ -134,9 +130,7 @@
             border: 1px solid #b30000; /* Red border */
             border-radius: 5px;
             font-size: 16px;
-}*/
-
-test 2
+}
         textarea {
             resize: none;
         }
@@ -150,55 +144,44 @@ test 2
         button:hover {
             background-color: #990000; /* Darker red on hover */
             transform: scale(1.05);
-        }*/
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            border: 2px solid white; /* Red border for the table */
         }
-        table th, table td {
-            border: 1px solid #b30000; /* Red cell borders */
-            padding: 10px;
-            text-align: left;
-        }
-        table th {
-            background-color: #b30000; /* Deep red header cells */
-            color: white;
-        }
-        table tbody tr:nth-child(odd) {
-            background-color: #ffe5e5; /* Light red for alternating rows */
-        }
-        table tbody tr:nth-child(even) {
-            background-color: #ffffff; /* White for alternating rows */
-        }
-        .success-message {
-            color: black; /* Red success message */
-            font-weight: bold;
-            text-align: center;
+        .delivery-header {
+            display: flex;
+            flex-direction: column; /* Stack the text and logo */
+            align-items: center; /* Center horizontally */
             margin-bottom: 20px;
         }
+
+        .delivery-header h1 {
+            font-size: 36px; /* Adjust font size for visibility */
+            font-weight: bold;
+            color: black; /* Match theme color */
+            margin: 10px 0;
+        }
+
+        .delivery-header .delivery-logo {
+            width: 120px; /* Adjust size for better visibility */
+            height: auto;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <header>
-            <div>
-                <img src="assets/img/mixue_logo.png" alt="Mixue Logo" class="logo"> <!-- Replace with your logo path -->
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="#">MENU</a></li>
-                    <li><a href="#"><img src="assets/img/shopping-cart.png" alt="Cart" style="height: 20px;"></a></li>
-                    <li><a href="#"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
-                </ul>
-            </nav>
-        </header>
-
-
-
+        <div>
+            <img src="assets/img/mixue_logo.png" alt="Mixue Logo" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#"><img src="assets/img/shopping-cart.png" alt="Cart Icon" style="height: 20px;"></a></li>
+                <li><a href="#"><img src="assets/img/user.png" alt="Profile Icon" style="height: 20px;"></a></li>
+            </ul>
+        </nav>
     </header>
+
     <div class="container">
         <!-- Success Message -->
         @if(session('success'))
@@ -226,40 +209,27 @@ test 2
 
         <!-- Delivery Records -->
         <div class="table-container">
-            <h1>Delivery</h1>
-            <!--<table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Customer Name</th>
-                        <th>Address</th>
-                        <th>Delivery Date</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($deliveries as $delivery)
-                        <tr>
-                            <td>{{ $delivery->id }}</td>
-                            <td>{{ $delivery->customer_name }}</td>
-                            <td>{{ $delivery->address }}</td>
-                            <td>{{ $delivery->delivery_date }}</td>
-                            <td>{{ $delivery->status }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>-->
+            <div class="delivery-header">
+                <h1>Delivery</h1>
+                <img src="assets/img/delivery-icon-9.png" alt="Delivery Icon" class="delivery-logo">
+            </div>
+
+            @foreach($deliveries as $delivery)
+            @endforeach
+
+
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 75%;"></div> <!-- Set width dynamically -->
-                <span class="progress-label">75% Complete</span>
+                <div class="progress-bar" style="width: {{ $delivery->status }}%;"></div>
+                <span class="progress-label">{{ $delivery->status }} </span>
             </div>
 
                 <h3>Delivery ID : {{ $delivery->id }}</h3>
                 <h3>Name : {{ $delivery->customer_name }}</h3>
                 <h3>Address : {{ $delivery->address }}</h3>
                 <h3>Delivery Date : {{ $delivery->delivery_date }}</h3>
-               <h3>Status : {{ $delivery->status }}</h3>
+
             </div>
     </div>
+
 </body>
 </html>
