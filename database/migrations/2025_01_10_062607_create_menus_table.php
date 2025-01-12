@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('Food_ID',10);
             $table->string('Food_Name',30);
-            $table->string('Description',50);
+            $table->string('Description',150);
             $table->float('Price',5,2);
+            $table->string('image')->nullable(); // Store image URL
             $table->timestamps();
 
         });
