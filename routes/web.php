@@ -5,13 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
-<<<<<<< HEAD
 use App\Http\Controllers\OrderController;
 
-=======
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RegisteredUserController;
->>>>>>> e0fd32cece88118477b4667038d64114a2a39a1e
 
 
 /*
@@ -37,7 +34,7 @@ Route::get('/', function () {
     'phpVersion' => PHP_VERSION,
     ]);
     });
-    
+
 // route to my login page
 
 Route::get('/login', function () {
@@ -48,28 +45,28 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
     })->name('register');
-        
-        
-        
+
+
+
     // Add these routes in your web.php to avoid the error
-    
+
     Route::view('/terms', 'terms'); // Define a route for terms of service
     Route::view('/policy', 'policy'); // Define a route for privacy policy
-          
+
     // // route to registration
     // Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     // Route::post('/register', [RegisteredUserController::class, 'store']);
-    
+
     Route::middleware([
         'auth:sanctum',
         config('jetstream.auth_session'),
         'verified',
         ])->group(function () {
-        
+
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
         })->name('dashboard');
-        });      
+        });
 
 Route::get('/home', function () {
     return view('homepage');
@@ -107,16 +104,13 @@ Route::delete('/menu/{id}', [menuController::class, 'destroy'])->name('menu.dest
 Route::get('/deliveries', [DeliveryController::class, 'index'])->name('deliveries.index');
 Route::post('/deliveries', [DeliveryController::class, 'store'])->name('deliveries.store');
 
-<<<<<<< HEAD
 // Menu Routes
 Route::get('/', [MenuController::class, 'index'])->name('menu.index');
 
 // Cart Routes
-=======
 //Add to Cart
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
->>>>>>> e0fd32cece88118477b4667038d64114a2a39a1e
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
