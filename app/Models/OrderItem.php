@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model {
     use HasFactory;
 
-    protected $fillable = ['order_id', 'item_id', 'quantity'];
-}
+    // Allow mass assignment for these fields
+    protected $fillable = ['order_id', 'menu_id', 'quantity', 'price'];
 
+    /**
+     * Relationship: An OrderItem belongs to an Order.
+     */
+    public function order() {
+        return $this->belongsTo(Order::class, 'order_id');
+    }
+
+    /**
+     * Relationship: An OrderItem belongs to a Menu item.
+     */
+    public function menu() {
+        return $this->belongsTo(Menu::class, 'menu_id');
+    }
+}

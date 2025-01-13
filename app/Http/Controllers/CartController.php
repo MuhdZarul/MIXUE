@@ -4,37 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use App\Models\Menu;
 
 class CartController extends Controller {
-    public function add(Request $request) {
-        $cart = session()->get('cart', []);
-        $itemId = $request->input('item_id');
-        $quantity = $request->input('quantity', 1);
+    public function add(Request $request)
+{
 
-        if (isset($cart[$itemId])) {
-            $cart[$itemId]['quantity'] += $quantity;
-        } else {
-            $item = Item::findOrFail($itemId);
-            $cart[$itemId] = [
-                'name' => $item->name,
-                'price' => $item->price,
-                'quantity' => $quantity,
-            ];
-        }
+    $menuId = $request->input('menu_id');
+    $quantity = $request->input('quantity', 1); // Default quantity is 1
 
-        session()->put('cart', $cart);
-        return redirect()->route('cart.view');
+    $menu = Menu::find($menuId);
+
+    if (!$menu) {
+        return redirect()->route('menu.index')->with('error', 'Item not found.');
     }
+
+    $cart = session()->get('cart', []);
+
+
+    if (isset($cart[$menuId])) {
+        $cart[$menuId]['quantity'] += $quantity;
+    } else {
+
+        $cart[$menuId] = [
+            'name' => $menu->Food_Name,
+            'price' => $menu->Price,
+            'quantity' => $quantity,
+        ];
+    }
+
+
+    session()->put('cart', $cart);
+
+    return redirect()->route('cart.view')->with('success', 'Item added to cart!');
+}
 
     public function update(Request $request) {
         $cart = session()->get('cart', []);
-        $itemId = $request->input('item_id');
+        $menuId = $request->input('menu_id');
         $quantity = $request->input('quantity');
 
-        if (isset($cart[$itemId])) {
-            $cart[$itemId]['quantity'] = $quantity;
+        if (isset($cart[$menuId])) {
+            $cart[$menuId]['quantity'] = $quantity;
             if ($quantity <= 0) {
-                unset($cart[$itemId]);
+                unset($cart[$menuId]);
             }
         }
 
@@ -44,8 +57,8 @@ class CartController extends Controller {
 
     public function remove(Request $request) {
         $cart = session()->get('cart', []);
-        $itemId = $request->input('item_id');
-        unset($cart[$itemId]);
+        $menuId = $request->input('menu_id');
+        unset($cart[$menuId]);
 
         session()->put('cart', $cart);
         return redirect()->route('cart.view');
@@ -56,4 +69,3 @@ class CartController extends Controller {
         return view('cart.index', compact('cart'));
     }
 }
-

@@ -208,66 +208,66 @@
             </ul>
         </nav>
     -->
-        @if(session('cart') && count(session('cart')) > 0)
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>Food ID</th>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php $total = 0; @endphp
-                    @foreach(session('cart') as $id => $details)
-                        @php $total += $details['price'] * $details['quantity']; @endphp
-                        <tr>
-                            <td>#{{ $id }}</td>
-                            <td>{{ $details['name'] }}</td>
-                            <td>RM {{ number_format($details['price'], 2) }}</td>
-                            <td>
-                                <div class="quantity-control">
-                                    <form action="{{ route('cart.update') }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        <input type="hidden" name="item_id" value="{{ $id }}">
-                                        <button type="submit" name="quantity" value="{{ $details['quantity'] - 1 }}">-</button>
-                                    </form>
-                                    <input type="text" value="{{ $details['quantity'] }}" readonly>
-                                    <form action="{{ route('cart.update') }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        <input type="hidden" name="item_id" value="{{ $id }}">
-                                        <button type="submit" name="quantity" value="{{ $details['quantity'] + 1 }}">+</button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>
-                                <form action="{{ route('cart.remove') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="item_id" value="{{ $id }}">
-                                    <button type="submit" style="background: none; border: none; color: #e3000f; cursor: pointer;">🗑</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="cart-total">TOTAL: RM {{ number_format($total, 2) }}</div>
-            <div class="actions">
-                <a href="{{ route('menu.index') }}"><button>Back</button></a>
-                <form action="{{ route('order.place') }}" method="POST">
-                    @csrf
-                    <button type="submit">Place Order</button>
-                </form>
-            </div>
-        @else
-            <div class="empty-cart">
-                <h3>Your cart is empty!</h3>
-                <a href="{{ route('menu.index') }}"><button>Back</button></a>
-            </div>
-        @endif
+    @if(session('cart') && count(session('cart')) > 0)
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Food ID</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php $total = 0; @endphp
+            @foreach(session('cart') as $id => $details)
+                @php $total += $details['price'] * $details['quantity']; @endphp
+                <tr>
+                    <td>#{{ $id }}</td>
+                    <td>{{ $details['name'] }}</td>
+                    <td>RM {{ number_format($details['price'], 2) }}</td>
+                    <td>
+                        <div class="quantity-control">
+                            <form action="{{ route('cart.update') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <input type="hidden" name="menu_id" value="{{ $id }}">
+                                <button type="submit" name="quantity" value="{{ $details['quantity'] - 1 }}">-</button>
+                            </form>
+                            <input type="text" value="{{ $details['quantity'] }}" readonly>
+                            <form action="{{ route('cart.update') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <input type="hidden" name="menu_id" value="{{ $id }}">
+                                <button type="submit" name="quantity" value="{{ $details['quantity'] + 1 }}">+</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <form action="{{ route('cart.remove') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="menu_id" value="{{ $id }}">
+                            <button type="submit" style="background: none; border: none; color: #e3000f; cursor: pointer;">REMOVE</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="cart-total">TOTAL: RM {{ number_format($total, 2) }}</div>
+    <div class="actions">
+        <a href="{{ route('menu.index') }}"><button>Back</button></a>
+        <form action="{{ route('order.place') }}" method="POST">
+            @csrf
+            <button type="submit">Place Order</button>
+        </form>
     </div>
+@else
+    <div class="empty-cart">
+        <h3>Your cart is empty!</h3>
+        <a href="{{ route('menu.index') }}"><button>Back</button></a>
+    </div>
+@endif
+</div>
 </body>
 </html>
 @endsection
