@@ -110,9 +110,14 @@
                 <li><a href="/login"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
 =======
                 <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" alt="Cart" style="height: 20px;"></a></li>
+<<<<<<< HEAD
                 <li><a href="/login"><img src="{{ asset('assets/img/user.png')}}" alt="Profile" style="height: 20px;"></a></li>
                 <li><a href="{{ route('admin') }}">Admin Dashboard</a></li>
 >>>>>>> c016abf721d22ad11cc59103277f45a6931cd6b5
+=======
+                <li><a href="/profile"><img src="{{ asset('assets/img/user.png')}}" alt="Profile" style="height: 20px;"></a></li>
+                <!-- <li><a href="{{ route('admin') }}">Admin Dashboard</a></li> -->
+>>>>>>> 214fc058867daae7b78173712bbd173b614e86ab
             </ul>
         </nav>
     </header>

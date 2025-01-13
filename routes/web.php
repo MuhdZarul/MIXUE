@@ -79,6 +79,11 @@ Route::get('/home', function () {
     return view('homepage');
 });
 
+Route::get('profile', function () {
+    return view('profile'); // Page with Admin and Customer buttons
+})->name('profile');
+
+
 // Admin Dashboard
 Route::get('/admin', function () {
     return view('admin.adminPage');
