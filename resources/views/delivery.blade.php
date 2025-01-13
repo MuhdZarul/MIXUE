@@ -164,7 +164,13 @@
             height: auto;
             margin-top: 10px;
         }
-
+         h3 {
+            margin: 10px 0;
+            }
+            .progress-label {
+                left: 50%;
+                transform: translateX(-50%);
+            }
     </style>
 </head>
 <body>
@@ -217,10 +223,12 @@
             @foreach($deliveries as $delivery)
             @endforeach
 
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: {{ $delivery->status }}%;"></div>
-                <span class="progress-label">{{ $delivery->status }} </span>
-            </div>
+            @php
+            $statusPercentage = $delivery->status === 'Completed' ? 100 : ($delivery->status === 'In Progress' ? 50 : 0);
+            @endphp
+            <div class="progress-bar" style="width: {{ $statusPercentage }}%;"></div>
+            <span class="progress-label">{{ $delivery->status }}</span>
+
 
                 <h3>Delivery ID : {{ $delivery->id }}</h3>
                 <h3>Name : {{ $delivery->customer_name }}</h3>
