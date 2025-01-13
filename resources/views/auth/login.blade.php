@@ -109,7 +109,7 @@
         <div class="right-side">
             <div class="login-box">
                 <h1>LOGIN</h1>
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login.post') }}" method="POST">
                     @csrf
                     <div class="input-group">
                         <label for="email">E-mail</label>

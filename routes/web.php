@@ -5,7 +5,8 @@ use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\menuController;
-
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,16 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 //Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
+
+Route::get('/login', function () {return view('auth.login');})->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.post');
+Route::get('/register', function () {return view('auth.register');})->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::get('/success', function () {
+    return view('auth.success');
+})->name('success');

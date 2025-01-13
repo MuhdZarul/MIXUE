@@ -21,27 +21,27 @@ class menuController extends Controller
      * Show the form for creating a new resource.
      */
 
-     // Add item to cart
-     public function addToCart(Request $request)
-     {
-         $menuItemId = $request->input('menu_id');
-         $cart = Session::get('cart', []);
+    // Add item to cart
+    public function addToCart(Request $request)
+    {
+        $menuItemId = $request->input('menu_id');
+        $cart = Session::get('cart', []);
 
-         if (isset($cart[$menuItemId])) {
-             $cart[$menuItemId]['quantity'] += 1;
-         } else {
-             $menuItem = DB::table('menu')->find($menuItemId);
-             $cart[$menuItemId] = [
-                 'name' => $menuItem->name,
-                 'price' => $menuItem->price,
-                 'quantity' => 1,
-             ];
-         }
+        if (isset($cart[$menuItemId])) {
+            $cart[$menuItemId]['quantity'] += 1;
+        } else {
+            $menuItem = DB::table('menu')->find($menuItemId);
+            $cart[$menuItemId] = [
+                'name' => $menuItem->name,
+                'price' => $menuItem->price,
+                'quantity' => 1,
+            ];
+        }
 
-         Session::put('cart', $cart);
+        Session::put('cart', $cart);
 
-         return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
-     }
+        return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
+    }
     public function create()
     {
         return view('admin.menu-add');
