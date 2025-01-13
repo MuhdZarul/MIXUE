@@ -3,23 +3,20 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Menu;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
 class menuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $menus = Menu::all(); // Fetch all menu items from the database
         return view('menu', ['menus' => $menus]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
 
      // Add item to cart
      public function addToCart(Request $request)
@@ -42,6 +39,7 @@ class menuController extends Controller
 
          return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
      }
+
     public function create()
     {
         return view('admin.menu-add');
@@ -52,8 +50,33 @@ class menuController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+        'Food_ID' => 'required|unique:menus,Food_ID',
+        'Food_Name' => 'required',
+        'Description' => 'required',
+        'Price' => 'required|numeric',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',     
+        ]);
 
+        $menu = new Menu();
+        $menu->Food_ID = $validated['Food_ID'];
+        $menu->Food_Name = $validated['Food_Name'];
+        $menu->Description = $validated['Description'];
+        $menu->Price = $validated['Price'];
+
+        // Upload image
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('menu', 'public'); // Ensure public disk is configured
+            $menu->image = $path;
+        }
+    
+
+        $menu->save();
+
+        return redirect()->route('menu.create')->with('success', 'Menu added successfully!');
     }
+    
 
 
     /**
@@ -69,33 +92,67 @@ class menuController extends Controller
      */
     public function edit()
     {
-        $menus = Menu::all();
-        return view('admin.menu-Update', compact('menus'));
+        $menus = Menu::all(); // Get all menus
+        return view('admin.menu-edit', compact('menus')); // Pass the menus to the view
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
+
+    public function showEditForm($id)
     {
-        // Validate the request data
-        $request->validate([
-            'Food_ID' => 'sometimes|string',
-            'Food_Name' => 'sometimes|string|max:255',
-            'Description' => 'sometimes|string',
-            'Price' => 'sometimes|numeric',
-            'image' => 'sometimes|string',
+        // Get the specific menu by its ID
+        $menu = Menu::find($id);
+
+        // Check if the menu exists
+        if (!$menu) {
+            return redirect()->route('menu.index')->with('error', 'Menu item not found.');
+        }
+
+        // Return the update form view and pass the menu data
+        return view('admin.menu-update', compact('menu'));
+    }
+
+   
+     // Method to update the menu
+     public function update(Request $request, $id)
+     {
+        $menu = Menu::find($id);
+
+        if (!$menu) {
+            return response()->json(['message' => 'Menu item not found'], 404);
+        }
+
+        // Validate incoming data
+        $validated = $request->validate([
+            'Food_Name' => 'required',
+            'Description' => 'required',
+            'Price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Ensure image is handled if provided
         ]);
 
-        // Find the menu item by ID
-        $menu = Menu::findOrFail($id);
+        // Update menu details
+        $menu->Food_Name = $validated['Food_Name'];
+        $menu->Description = $validated['Description'];
+        $menu->Price = $validated['Price'];
 
-        // Update only the fields provided in the request
-        $menu->update($request->only(['Food_ID', 'Food_Name', 'Description', 'Price', 'image']));
+        // If there's a new image, update it
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($menu->image) {
+                Storage::disk('public')->delete($menu->image);
+            }
+            
+            $image = $request->file('image');
+            $path = $image->store('menu', 'public');
+            $menu->image = $path;
+        }
 
-        return redirect()->back()->with('success', 'Menu item updated successfully!');
+        // Save the updated menu item
+        $menu->save();
+
+        // Redirect to menu index page with success message
+        return redirect()->route('menu.index')->with('success', 'Menu updated successfully');
+
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -108,11 +165,25 @@ class menuController extends Controller
         return view('admin.menu-Delete', compact('menus'));
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $request->validate(['Food_ID' => 'required|exists:menus,id']);
+        $menu = Menu::find($id);
 
-        Menu::destroy($request->Food_ID);
-        return redirect()->back()->with('success', 'Menu item deleted successfully!');
+        if (!$menu) {
+            return redirect()->route('menu.index')->with('error', 'Menu not found');
+        }
+
+        // Delete the menu and the associated image file (if you have storage management)
+        $menu->delete();
+
+        return redirect()->route('menu.index')->with('success', 'Menu deleted successfully');
     }
+
+
+
+
 }
+
+
+
+

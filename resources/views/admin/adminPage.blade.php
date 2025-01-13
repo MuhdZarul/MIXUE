@@ -1,52 +1,84 @@
 @extends('layout.layout')
+
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Dashboard</title>
-        <!-- Add your CSS styles -->
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f8f9fa;
-                text-align: center;
-                /* padding: 20px; */
-            }
-            h1 {
-                color: #333;
-            }
-            .menu {
-                margin: 20px auto;
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-            }
-            .menu a {
-                display: inline-block;
-                padding: 15px 25px;
-                text-decoration: none;
-                background-color: #e60000;
-                color: #fff;
-                font-weight: bold;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
-            }
-            .menu a:hover {
-                background-color:rgb(226, 152, 152);
-            }
-        </style>
-    </head>
-
-    <body>
-        <h1>Admin Dashboard</h1>
+    <h1>Admin Dashboard</h1>
+    
+    <div class="container">
         <div class="menu">
-            <a href="{{ route('menu.add') }}">Add Menu</a>
-            <a href="{{ route('menu.update') }}">Update Menu</a>
-            <a href="{{ route('menu.delete') }}">Delete Menu</a>
+            <a href="{{ route('menu.create') }}" class="menu-button">Add Menu</a>
+            <a href="{{ route('menu.edit') }}" class="menu-button">Update Menu</a>
+            <a href="{{ route('menu.delete') }}" class="menu-button">Delete Menu</a>
         </div>
-    </body>
-</html>
+    </div>
+
+    <style>
+        /* General body and layout styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Ensure header and footer have proper size */
+        header, footer {
+            font-size: 2rem;  /* Set header and footer font size */
+            padding: 20px 0;  /* Add padding to top and bottom */
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;  /* Large heading size */
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;  /* Adjust width for desktop */
+            padding: 0 40px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 40px;  /* Increased gap between buttons */
+            margin-top: 40px;
+        }
+
+        .menu-button {
+            padding: 20px 40px;  /* Larger button padding */
+            background-color: #e60000;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;  /* Larger button font size */
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 250px;  /* Button width */
+            text-align: center;
+        }
+
+        .menu-button:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            background-color: #e60000;
+            transform: scale(1);
+        }
+    </style>
+
 @endsection

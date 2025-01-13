@@ -1,10 +1,13 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\menuController;
+use Inertia\Inertia;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 
 /*
@@ -21,6 +24,49 @@ use App\Http\Controllers\menuController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+    'canLogin' => Route::has('login'),
+    'canRegister' => Route::has('register'),
+    'laravelVersion' => Application::VERSION,
+    'phpVersion' => PHP_VERSION,
+    ]);
+    });
+    
+// route to my login page
+
+Route::get('/login', function () {
+    return view('auth.login'); // Path to your custom login Blade view
+    })->name('login');
+
+
+Route::get('/register', function () {
+    return view('auth.register');
+    })->name('register');
+        
+        
+        
+    // Add these routes in your web.php to avoid the error
+    
+    Route::view('/terms', 'terms'); // Define a route for terms of service
+    Route::view('/policy', 'policy'); // Define a route for privacy policy
+          
+    // // route to registration
+    // Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    // Route::post('/register', [RegisteredUserController::class, 'store']);
+    
+    Route::middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+        ])->group(function () {
+        
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+        })->name('dashboard');
+        });      
+
 Route::get('/home', function () {
     return view('homepage');
 });
@@ -31,30 +77,35 @@ Route::get('/admin', function () {
 })->name('admin');
 
 Route::get('/menu', [menuController::class, 'index'])->name('menu.index');
-Route::post('/menu/add-to-cart', [menuController::class, 'addToCart']);
-
-// Route::get('/admin/add-menu', [menuController::class, 'create'])->name('menu.add');
-// Route::post('/admin/add-menu', [menuController::class, 'store']);
-
-// Route::get('/admin/update-menu', [menuController::class, 'edit'])->name('menu.update');
-// Route::post('/admin/update-menu', [menuController::class, 'update']);
-
-// Route::get('/admin/delete-menu', [menuController::class, 'delete'])->name('menu.delete');
-// Route::post('/admin/delete-menu', [menuController::class, 'destroy']);
+// Route::post('/menu/add-to-cart', [menuController::class, 'addToCart']);
 
 // Add Menu Page
-Route::get('/menu/add', [menuController::class, 'create'])->name('menu.add');
+Route::get('/menu/add', [menuController::class, 'create'])->name('menu.create');
+Route::post('/menu/store', [menuController::class, 'store'])->name('menu.store');
 // Update Menu Page
-Route::get('/menu/update', [menuController::class, 'edit'])->name('menu.update');
+// Route::get('/menu/update', [menuController::class, 'edit'])->name('menu.edit'); // Show the list of menus to select from
+// Route::get('/menu/update/{id}', [menuController::class, 'showEditForm'])->name('menu.showEditForm'); // Show the form to update a specific menu by ID
+// Route::put('/menu/update/{id}', [menuController::class, 'update'])->name('menu.update');// Update the selected menu
+// Show the list of menus to select from
+Route::get('/menu/update', [MenuController::class, 'edit'])->name('menu.edit');
+
+// Show the edit form for a specific menu
+Route::get('/menu/update/{id}', [MenuController::class, 'showEditForm'])->name('menu.showEditForm');
+
+// Handle the update for a specific menu
+Route::put('/menu/update/{id}', [MenuController::class, 'update'])->name('menu.update');
+
 // Delete Menu Page
 Route::get('/menu/delete', [menuController::class, 'deletePage'])->name('menu.delete');
+Route::delete('/menu/{id}', [menuController::class, 'destroy'])->name('menu.destroy');
+
 
 Route::get('/deliveries', [DeliveryController::class, 'index'])->name('deliveries.index');
 Route::post('/deliveries', [DeliveryController::class, 'store'])->name('deliveries.store');
 
 //Add to Cart
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
-Route::get('/', [MenuController::class, 'index'])->name('menu.index');
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
