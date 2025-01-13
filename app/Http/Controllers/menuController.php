@@ -18,28 +18,33 @@ class menuController extends Controller
 
 
 
-     // Add item to cart
-     public function addToCart(Request $request)
-     {
-         $menuItemId = $request->input('menu_id');
-         $cart = Session::get('cart', []);
+    // Add item to cart
+    public function addToCart(Request $request)
+    {
+        $menuItemId = $request->input('menu_id');
+        $cart = Session::get('cart', []);
 
-         if (isset($cart[$menuItemId])) {
-             $cart[$menuItemId]['quantity'] += 1;
-         } else {
-             $menuItem = DB::table('menu')->find($menuItemId);
-             $cart[$menuItemId] = [
-                 'name' => $menuItem->name,
-                 'price' => $menuItem->price,
-                 'quantity' => 1,
-             ];
-         }
+        if (isset($cart[$menuItemId])) {
+            $cart[$menuItemId]['quantity'] += 1;
+        } else {
+            $menuItem = DB::table('menu')->find($menuItemId);
+            $cart[$menuItemId] = [
+                'name' => $menuItem->name,
+                'price' => $menuItem->price,
+                'quantity' => 1,
+            ];
+        }
 
-         Session::put('cart', $cart);
+        Session::put('cart', $cart);
 
+<<<<<<< HEAD
+        return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
+    }
+=======
          return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
      }
 
+>>>>>>> c016abf721d22ad11cc59103277f45a6931cd6b5
     public function create()
     {
         return view('admin.menu-add');

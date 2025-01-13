@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             font-family: Arial, sans-serif;
             background-color: #fff;
         }
+
         header {
             background-color: #e60000;
             color: white;
@@ -19,18 +21,22 @@
             justify-content: space-between;
             align-items: center;
         }
+
         header img {
             height: 50px;
         }
+
         nav ul {
             list-style: none;
             display: flex;
             margin: 0;
             padding: 0;
         }
+
         nav ul li {
             margin: 0 15px;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -50,29 +56,36 @@
             text-align: center;
             margin-top: 40px;
         }
+
         footer .footer-content {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         footer .footer-section {
             margin: 10px 0;
             width: 30%;
         }
+
         footer .footer-section h4 {
             margin-bottom: 10px;
             font-size: 18px;
             text-transform: uppercase;
         }
-        footer .footer-section p, footer .footer-section a {
+
+        footer .footer-section p,
+        footer .footer-section a {
             margin: 5px 0;
             color: #ccc;
             font-size: 14px;
             text-decoration: none;
         }
+
         footer .footer-section a:hover {
             color: white;
         }
+
         footer .copyright {
             margin-top: 20px;
             font-size: 12px;
@@ -80,6 +93,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div>
@@ -90,14 +104,25 @@
                 <li><a href="/home">HOME</a></li>
                 <li><a href="/menu">MENU</a></li>
                 <li><a href="/deliveries">DELIVERY</a></li>
+<<<<<<< HEAD
+                <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}"
+                            alt="Cart" style="height: 20px;"></a></li>
+                <li><a href="/login"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
+=======
                 <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" alt="Cart" style="height: 20px;"></a></li>
+<<<<<<< HEAD
+                <li><a href="/login"><img src="{{ asset('assets/img/user.png')}}" alt="Profile" style="height: 20px;"></a></li>
+                <li><a href="{{ route('admin') }}">Admin Dashboard</a></li>
+>>>>>>> c016abf721d22ad11cc59103277f45a6931cd6b5
+=======
                 <li><a href="/profile"><img src="{{ asset('assets/img/user.png')}}" alt="Profile" style="height: 20px;"></a></li>
                 <!-- <li><a href="{{ route('admin') }}">Admin Dashboard</a></li> -->
+>>>>>>> 214fc058867daae7b78173712bbd173b614e86ab
             </ul>
         </nav>
     </header>
 
-@yield('content')
+    @yield('content')
     <footer>
         <div class="footer-content">
             <!-- Contact Section -->
@@ -129,4 +154,5 @@
         </div>
     </footer>
 </body>
+
 </html>
