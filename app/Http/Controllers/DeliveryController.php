@@ -11,6 +11,7 @@ class DeliveryController extends Controller
     {
         $deliveries = DB::table('deliveries')->get(); // Fetch all deliveries
         return view('delivery', ['deliveries' => $deliveries]); // Render the Blade view
+        $statusPercentage = Delivery::getProgressPercentage($delivery->status);
 
     }
 
@@ -22,13 +23,17 @@ class DeliveryController extends Controller
             'delivery_date' => 'required|date',
         ]);
 
+        try{
         DB::table('deliveries')->insert([
             'customer_name' => $request->customer_name,
             'address' => $request->address,
             'delivery_date' => $request->delivery_date,
             'status' => 'Pending',
         ]);
+        return redirect()->route('deliveries.index')->with('success', 'Delivery added successfully!');
+     }catch (\Exception $e) {
 
         return redirect()->route('deliveries.index')->with('success', 'Delivery added successfully!');
+        }
     }
 }
