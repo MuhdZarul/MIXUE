@@ -1,3 +1,7 @@
+@extends('layout.layout')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,34 +89,54 @@
                         0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle secondary shadow */
            }
 
-        .progress-bar-container {
-            width: 100%;
-            background-color: #ffe5e5; /* Light red background for progress bar */
-            border: 2px solid #b30000; /* Red border for emphasis */
-            border-radius: 25px;
-            margin: 20px 0;
-            height: 30px;
-            overflow: hidden;
-            position: relative;
-        }
+           .progress-bar-container {
+    width: 100%;
+    background-color: #ffe5e5; /* Light red background for progress bar */
+    border: 2px solid #b30000; /* Red border for emphasis */
+    border-radius: 25px;
+    margin: 20px 0;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+}
 
-        .progress-bar {
-                width: 60%; /* Set this dynamically based on progress */
-                height: 100%;
-                background-color: #3bd10d; /* Deep red color for the filled part */
-                border-radius: 25px 0 0 25px; /* Round the left side of the bar */
-        }
+.progress-bar {
+    height: 100%;
+    background-color: #02cd2e; /* Deep red color for the filled part */
+    border-radius: 25px 0 0 25px; /* Round the left side of the bar */
+    width: 75%; /* Set width dynamically */
+    position: relative;
+    animation: move-stripes 2s linear infinite; /* Add the animation */
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(142, 248, 13, 0.867) 0px,
+        rgba(255, 255, 255, 0.2) 5px,
+        rgba(0, 0, 0, 0.2) 5px,
+        rgba(0, 0, 0, 0.2) 10px
+    );
+}
 
-        .progress-label {
-                position: absolute;
-                width: 100%;
-                text-align: center;
-                top: 50%;
-                transform: translateY(-50%);
-                font-weight: bold;
-                color: #000000; /* Deep red for text */
-                font-size: 20px;
-        }
+/* Keyframes for the moving effect */
+@keyframes move-stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 0;
+    }
+}
+
+.progress-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #b30000; /* Deep red for text */
+    font-size: 14px;
+}
+
 
         .form-container {
             margin-bottom: 30px;
@@ -164,29 +188,30 @@
             height: auto;
             margin-top: 10px;
         }
-         h3 {
-            margin: 10px 0;
-            }
-            .progress-label {
-                left: 50%;
-                transform: translateX(-50%);
-            }
+
     </style>
 </head>
 <body>
     <header>
-        <div>
-            <img src="assets/img/mixue_logo.png" alt="Mixue Logo" class="logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li><a href="#">MENU</a></li>
-                <li><a href="#"><img src="assets/img/shopping-cart.png" alt="Cart Icon" style="height: 20px;"></a></li>
-                <li><a href="#"><img src="assets/img/user.png" alt="Profile Icon" style="height: 20px;"></a></li>
-            </ul>
-        </nav>
+
     </header>
+<!-- Delivery Form -->
+<!--<div class="form-container">
+    <h2>Add a Delivery</h2>
+    <form method="POST" action="{{ route('deliveries.store') }}">
+        @csrf
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <label for="delivery_date">Delivery Date:</label>
+        <input type="date" id="delivery_date" name="delivery_date" required>
+
+        <button type="submit">Add Delivery</button>
+    </form>
+</div>--->
 
     <div class="container">
         <!-- Success Message -->
@@ -194,49 +219,32 @@
             <p class="success-message">{{ session('success') }}</p>
         @endif
 
-        <!-- Delivery Form -->
-        <!--<div class="form-container">
-            <h2>Add a Delivery</h2>
-            <form method="POST" action="{{ route('deliveries.store') }}">
-                @csrf
-                <label for="customer_name">Customer Name:</label>
-                <input type="text" id="customer_name" name="customer_name" required>
 
-                <label for="address">Address:</label>
-                <textarea id="address" name="address" rows="4" required></textarea>
-
-                <label for="delivery_date">Delivery Date:</label>
-                <input type="date" id="delivery_date" name="delivery_date" required>
-
-                <button type="submit">Add Delivery</button>
-            </form>
-        </div>
-        -->
 
         <!-- Delivery Records -->
         <div class="table-container">
             <div class="delivery-header">
                 <h1>Delivery</h1>
-                <img src="/assets/img/delivery-icon-9.jpg" alt="Delivery Icon" class="delivery-logo">
+                <img src="assets/img/delivery-icon-9.jpg" alt="Delivery Icon" class="delivery-logo">
             </div>
 
             @foreach($deliveries as $delivery)
             @endforeach
 
-            @php
-            $statusPercentage = $delivery->status === 'Completed' ? 100 : ($delivery->status === 'In Progress' ? 50 : 0);
-            @endphp
-            <div class="progress-bar" style="width: {{ $statusPercentage }}%;"></div>
-            <span class="progress-label">{{ $delivery->status }}</span>
 
 
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 75%;"></div> <!-- Set width dynamically -->
+                <span class="progress-label">75% Complete</span>
+            </div>
                 <h3>Delivery ID : {{ $delivery->id }}</h3>
                 <h3>Name : {{ $delivery->customer_name }}</h3>
                 <h3>Address : {{ $delivery->address }}</h3>
                 <h3>Delivery Date : {{ $delivery->delivery_date }}</h3>
+               <h3>Status : {{ $delivery->status }}</h3>
 
             </div>
     </div>
-
 </body>
 </html>
+@endsection
