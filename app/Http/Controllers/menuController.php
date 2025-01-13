@@ -37,14 +37,8 @@ class menuController extends Controller
 
         Session::put('cart', $cart);
 
-<<<<<<< HEAD
         return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
     }
-=======
-         return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
-     }
-
->>>>>>> c016abf721d22ad11cc59103277f45a6931cd6b5
     public function create()
     {
         return view('admin.menu-add');
