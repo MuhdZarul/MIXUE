@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mixue - Home</title>
+    <title>Mixue</title>
     <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> Add your custom CSS here -->
     <style>
         body {
