@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\menuController;
+use App\Http\Controllers\OrderController;
+
 
 
 /*
@@ -52,12 +53,25 @@ Route::get('/menu/delete', [menuController::class, 'deletePage'])->name('menu.de
 Route::get('/deliveries', [DeliveryController::class, 'index'])->name('deliveries.index');
 Route::post('/deliveries', [DeliveryController::class, 'store'])->name('deliveries.store');
 
-//Add to Cart
-Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+// Menu Routes
 Route::get('/', [MenuController::class, 'index'])->name('menu.index');
+
+// Cart Routes
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+
+// Prevent GET request to /cart/add
+Route::get('/cart/add', function () {
+    return redirect()->route('menu.index'); // Redirect to menu if accessed via GET
+});
+
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
-//Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
+Route::get('/cart/summary', [OrderController::class, 'showCartSummary'])->name('cart.summary'); // Cart summary
+Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
+//Route::get('/orders/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
+Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
+
+
+
