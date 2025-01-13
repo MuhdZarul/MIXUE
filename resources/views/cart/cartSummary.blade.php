@@ -69,7 +69,7 @@
                 <thead>
                     <tr>
                         <th>Item</th>
-                        <th>Price</th>
+
                         <th>Quantity</th>
                         <th>Total</th>
                         <th>Action</th>
@@ -79,7 +79,6 @@
                     @foreach($order->items as $item)
                         <tr>
                             <td>{{ $item->menu->name ?? 'Unknown' }}</td>
-                            <td>RM {{ number_format($item->price, 2) }}</td>
                             <td>{{ $item->quantity }}</td>
                             <td>RM {{ number_format($item->price * $item->quantity, 2) }}</td>
                             <td>

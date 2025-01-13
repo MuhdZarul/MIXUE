@@ -11,7 +11,7 @@ class CartController extends Controller {
 {
 
     $menuId = $request->input('menu_id');
-    $quantity = $request->input('quantity', 1); 
+    $quantity = $request->input('quantity', 1); // Default quantity is 1
 
     $menu = Menu::find($menuId);
 
