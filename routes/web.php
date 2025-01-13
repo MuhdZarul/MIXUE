@@ -6,8 +6,10 @@ use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\menuController;
+use App\Http\Controllers\transactionController;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RegisteredUserController;
+
 
 
 /*
@@ -33,7 +35,7 @@ Route::get('/', function () {
     'phpVersion' => PHP_VERSION,
     ]);
     });
-    
+
 // route to my login page
 
 Route::get('/login', function () {
@@ -44,28 +46,28 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
     })->name('register');
-        
-        
-        
+
+
+
     // Add these routes in your web.php to avoid the error
-    
+
     Route::view('/terms', 'terms'); // Define a route for terms of service
     Route::view('/policy', 'policy'); // Define a route for privacy policy
-          
+
     // // route to registration
     // Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     // Route::post('/register', [RegisteredUserController::class, 'store']);
-    
+
     Route::middleware([
         'auth:sanctum',
         config('jetstream.auth_session'),
         'verified',
         ])->group(function () {
-        
+
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
         })->name('dashboard');
-        });      
+        });
 
 Route::get('/home', function () {
     return view('homepage');
@@ -112,3 +114,18 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 //Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
+
+
+//Transaction punya
+Route::resource('transactions', transactionController::class);
+
+Route::get('/transaction', [transactionController::class, 'index'])->name('transaction.index');
+
+Route::post('/transaction', [transactionController::class, 'store'])->name('transaction.store');
+Route::get('/transaction/{order_id}/edit', [transactionController::class, 'edit'])->name('transaction.edit');
+Route::put('/transaction/{order_id}', [transactionController::class, 'update'])->name('transaction.update');
+Route::delete('/transaction/{order_id}', [transactionController::class, 'destroy'])->name('transaction.destroy');
+
+Route::get('/add-transaction', function () {
+    return view('add-transaction');
+});
