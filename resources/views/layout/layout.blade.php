@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mixue - Home</title>
+    <title>Mixue</title>
     <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> Add your custom CSS here -->
     <style>
         body {
@@ -83,7 +83,7 @@
 <body>
     <header>
         <div>
-            <img src="assets/img/mixue_logo.png" alt="Mixue Logo" class="logo"> <!-- Replace with your logo path -->
+            <img src="{{asset('assets/img/mixue_logo.png')}}" alt="Mixue Logo" class="logo"> <!-- Replace with your logo path -->
         </div>
         <nav>
             <ul>
@@ -91,7 +91,8 @@
                 <li><a href="/menu">MENU</a></li>
                 <li><a href="/deliveries">DELIVERY</a></li>
                 <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" alt="Cart" style="height: 20px;"></a></li>
-                <li><a href="#"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
+                <li><a href="/login"><img src="{{ asset('assets/img/user.png')}}" alt="Profile" style="height: 20px;"></a></li>
+                <li><a href="{{ route('admin') }}">Admin Dashboard</a></li>
             </ul>
         </nav>
     </header>
