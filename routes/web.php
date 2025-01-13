@@ -5,10 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
+<<<<<<< HEAD
 use App\Http\Controllers\OrderController;
 
+=======
+use App\Http\Controllers\transactionController;
+>>>>>>> 964f041be79f10fd72ec0adc1e6faaf4ca9738a4
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RegisteredUserController;
+
 
 
 /*
@@ -122,6 +127,7 @@ Route::get('/cart/add', function () {
 });
 
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
+<<<<<<< HEAD
 Route::get('/cart/summary', [OrderController::class, 'showCartSummary'])->name('cart.summary'); // Cart summary
 Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
 //Route::get('/orders/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
@@ -129,3 +135,21 @@ Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name(
 
 
 
+=======
+//Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
+
+
+//Transaction punya
+Route::resource('transactions', transactionController::class);
+
+Route::get('/transaction', [transactionController::class, 'index'])->name('transaction.index');
+
+Route::post('/transaction', [transactionController::class, 'store'])->name('transaction.store');
+Route::get('/transaction/{order_id}/edit', [transactionController::class, 'edit'])->name('transaction.edit');
+Route::put('/transaction/{order_id}', [transactionController::class, 'update'])->name('transaction.update');
+Route::delete('/transaction/{order_id}', [transactionController::class, 'destroy'])->name('transaction.destroy');
+
+Route::get('/add-transaction', function () {
+    return view('add-transaction');
+});
+>>>>>>> 964f041be79f10fd72ec0adc1e6faaf4ca9738a4
