@@ -13,7 +13,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 use App\Http\Controllers\OrderController;
 
-use App\Http\Controllers\transactionController;
+// use App\Http\Controllers\transactionController;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
@@ -88,9 +88,9 @@ Route::get('/admin', function () {
     return view('admin.adminPage');
 })->name('admin');
 // // Admin Login Route
-// Route::get('/adminlogin', function () {
-//     return view('adminlogin'); // Ensure this matches the location of your adminlogin.blade.php
-// })->name('adminlogin');
+Route::get('/adminlogin', function () {
+    return view('auth.adminlogin'); // Ensure this matches the location of your adminlogin.blade.php
+})->name('adminlogin');
 // // Login routes for admin
 // Admin Login Routes
 Route::get('/adminlogin', [LoginController::class, 'showLoginForm'])->name('adminlogin.form'); // Show admin login form
