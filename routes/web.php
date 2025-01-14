@@ -5,10 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
-=======
+
 use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\transactionController;
@@ -16,7 +16,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 
->>>>>>> c016abf721d22ad11cc59103277f45a6931cd6b5
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,45 +35,45 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-    'canLogin' => Route::has('login'),
-    'canRegister' => Route::has('register'),
-    'laravelVersion' => Application::VERSION,
-    'phpVersion' => PHP_VERSION,
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
     ]);
-    });
+});
 
 // route to my login page
 
 Route::get('/login', function () {
     return view('auth.login'); // Path to your custom login Blade view
-    })->name('login');
+})->name('login');
 
 
 Route::get('/register', function () {
     return view('auth.register');
-    })->name('register');
+})->name('register');
 
 
 
-    // Add these routes in your web.php to avoid the error
+// Add these routes in your web.php to avoid the error
 
-    Route::view('/terms', 'terms'); // Define a route for terms of service
-    Route::view('/policy', 'policy'); // Define a route for privacy policy
+Route::view('/terms', 'terms'); // Define a route for terms of service
+Route::view('/policy', 'policy'); // Define a route for privacy policy
 
-    // // route to registration
-    // Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-    // Route::post('/register', [RegisteredUserController::class, 'store']);
+// // route to registration
+// Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+// Route::post('/register', [RegisteredUserController::class, 'store']);
 
-    Route::middleware([
-        'auth:sanctum',
-        config('jetstream.auth_session'),
-        'verified',
-        ])->group(function () {
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
 
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
-        })->name('dashboard');
-        });
+    })->name('dashboard');
+});
 
 Route::get('/home', function () {
     return view('homepage');
@@ -143,10 +143,12 @@ Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name(
 
 //Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
 
-<<<<<<< HEAD
-Route::get('/login', function () {return view('auth.login');})->name('login');
+
+Route::get('/login', function () {
+    return view('auth.login'); })->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.post');
-Route::get('/register', function () {return view('auth.register');})->name('register');
+Route::get('/register', function () {
+    return view('auth.register'); })->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/dashboard', function () {
@@ -156,7 +158,7 @@ Route::get('/dashboard', function () {
 Route::get('/success', function () {
     return view('auth.success');
 })->name('success');
-=======
+
 
 //Transaction punya
 Route::resource('transactions', transactionController::class);
@@ -171,4 +173,6 @@ Route::delete('/transaction/{order_id}', [transactionController::class, 'destroy
 Route::get('/add-transaction', function () {
     return view('add-transaction');
 });
->>>>>>> c016abf721d22ad11cc59103277f45a6931cd6b5
+
+
+
