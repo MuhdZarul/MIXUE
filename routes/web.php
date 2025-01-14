@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\transactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,3 +146,20 @@ Route::get('/dashboard', function () {
 Route::get('/success', function () {
     return view('auth.success');
 })->name('success');
+
+
+
+//baru
+Route::resource('transactions', transactionController::class);
+
+Route::get('/transaction', [transactionController::class, 'index'])->name('transaction.index');
+
+Route::post('/transaction', [transactionController::class, 'store'])->name('transaction.store');
+Route::get('/transaction/{order_id}/edit', [transactionController::class, 'edit'])->name('transaction.edit');
+Route::put('/transaction/{order_id}', [transactionController::class, 'update'])->name('transaction.update');
+Route::delete('/transaction/{order_id}', [transactionController::class, 'destroy'])->name('transaction.destroy');
+
+Route::get('/add-transaction', function () {
+    return view('add-transaction');
+});
+

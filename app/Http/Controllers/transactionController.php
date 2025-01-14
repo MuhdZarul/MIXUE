@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
-use App\Models\Customer;
+use App\Models\User;
 use App\Models\Menu;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
@@ -23,7 +23,7 @@ class TransactionController extends Controller
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(User::class);
     }
 
     public function menu()
@@ -38,8 +38,8 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $transactions = Transaction::with(['customer', 'menu', 'delivery'])->get();
-        $customers = Customer::all();
+        $transactions = Transaction::with(['user', 'menu', 'delivery'])->get();
+        $customers = User::all();
         $menus = Menu::all();
         $deliveries = Delivery::all();
 
@@ -49,7 +49,7 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cust_id' => 'required|exists:customers,cust_id',
+            'cust_id' => 'required|exists:users,id',
         //    'food_id' => 'required|exists:menus,food_id',
         //    'food_price' => 'required|numeric',
             'cart_price' => 'required|numeric',

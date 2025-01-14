@@ -85,7 +85,7 @@
         @foreach($transactions as $transaction)
         <tr>
             <td>{{ $transaction->order_id }}</td>
-            <td>{{ $transaction->customer->cust_name }}</td>
+            <td>{{ $transaction->user->name }}</td>
 
 
             <td>{{ number_format($transaction->cart_price, 2) }}</td>
