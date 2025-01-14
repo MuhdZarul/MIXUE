@@ -115,5 +115,11 @@ D: Remove delivery records if necessary
 ![Alt text](images/Final_EditMenu.png)
 #### Delete Menu
 ![Alt text](images/Final_DeleteMenu.png)
+#### View Transaction
+![Alt text](images/Final_ViewTransaction.png)
+#### Add Transaction
+![Alt text](images/Final_AddTransaction.png)
+#### Edit Transaction
+![Alt text](images/Final_EditTransaction.png)
 
 # Challenge and Difficulties to Develop the Application
