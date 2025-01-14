@@ -6,6 +6,7 @@ use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\transactionController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -130,9 +131,6 @@ Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name(
 Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
 
 
-
-//Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
-
 Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.post');
 Route::get('/register', function () {return view('auth.register');})->name('register');
@@ -145,3 +143,18 @@ Route::get('/dashboard', function () {
 Route::get('/success', function () {
     return view('auth.success');
 })->name('success');
+
+
+//Transaction punya
+Route::resource('transactions', transactionController::class);
+
+Route::get('/transaction', [transactionController::class, 'index'])->name('transaction.index');
+
+Route::post('/transaction', [transactionController::class, 'store'])->name('transaction.store');
+Route::get('/transaction/{order_id}/edit', [transactionController::class, 'edit'])->name('transaction.edit');
+Route::put('/transaction/{order_id}', [transactionController::class, 'update'])->name('transaction.update');
+Route::delete('/transaction/{order_id}', [transactionController::class, 'destroy'])->name('transaction.destroy');
+
+Route::get('/add-transaction', function () {
+    return view('add-transaction');
+});

@@ -106,7 +106,7 @@
                 <li><a href="/deliveries">DELIVERY</a></li>
                 <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}"
                             alt="Cart" style="height: 20px;"></a></li>
-                <li><a href="/profile"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
+                <li><a href="/profile"><img src="{{ asset('assets/img/user.png') }}" alt="Profile" style="height: 20px;"></a></li>
             </ul>
         </nav>
     </header>
