@@ -27,7 +27,7 @@ class Transaction extends Model
     // Relationships to associated models
     public function customer()
     {
-        return $this->belongsTo(Customer::class, 'cust_id', 'cust_id'); // Transaction belongs to Customer
+        return $this->belongsTo(User::class, 'cust_id', 'id'); // Transaction belongs to Customer
     }
 
     public function menu()

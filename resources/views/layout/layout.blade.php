@@ -105,6 +105,7 @@
                 <li><a href="/home">HOME</a></li>
                 <li><a href="/menu">MENU</a></li>
                 <li><a href="/deliveries">DELIVERY</a></li>
+<<<<<<< HEAD
 
                 {{-- <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}"
                             alt="Cart" style="height: 20px;"></a></li>
@@ -122,6 +123,11 @@
                             style="height: 20px;"></a></li>
                 {{-- <!-- <li><a href="{{ route('admin') }}">Admin Dashboard</a></li> --> --}}
 
+=======
+                <li><a href="{{ route('cart.view') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}"
+                            alt="Cart" style="height: 20px;"></a></li>
+                <li><a href="/profile"><img src="assets/img/user.png" alt="Profile" style="height: 20px;"></a></li>
+>>>>>>> d845fa8db9b8b5cf0937a05a69935da80a9c6417
             </ul>
         </nav>
     </header>

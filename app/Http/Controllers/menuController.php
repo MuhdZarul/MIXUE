@@ -39,7 +39,10 @@ class menuController extends Controller
 
         return response()->json(['message' => 'Item added to cart successfully', 'cart' => $cart]);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d845fa8db9b8b5cf0937a05a69935da80a9c6417
     public function create()
     {
         return view('admin.menu-add');

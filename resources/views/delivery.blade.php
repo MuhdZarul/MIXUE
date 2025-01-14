@@ -196,7 +196,7 @@
 
     </header>
 <!-- Delivery Form -->
-<!--<div class="form-container">
+<div class="form-container">
     <h2>Add a Delivery</h2>
     <form method="POST" action="{{ route('deliveries.store') }}">
         @csrf
@@ -211,7 +211,7 @@
 
         <button type="submit">Add Delivery</button>
     </form>
-</div>--->
+</div>
 
     <div class="container">
         <!-- Success Message -->
