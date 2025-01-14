@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class menuController extends Controller
 {
-    
+
     public function index()
     {
         $menus = Menu::all(); // Fetch all menu items from the database
@@ -50,11 +50,11 @@ class menuController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-        'Food_ID' => 'required|unique:menus,Food_ID',
-        'Food_Name' => 'required',
-        'Description' => 'required',
-        'Price' => 'required|numeric',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',     
+            'Food_ID' => 'required|unique:menus,Food_ID',
+            'Food_Name' => 'required',
+            'Description' => 'required',
+            'Price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         $menu = new Menu();
@@ -69,13 +69,13 @@ class menuController extends Controller
             $path = $image->store('menu', 'public'); // Ensure public disk is configured
             $menu->image = $path;
         }
-    
+
 
         $menu->save();
 
         return redirect()->route('menu.create')->with('success', 'Menu added successfully!');
     }
-    
+
 
 
     /**
@@ -110,10 +110,10 @@ class menuController extends Controller
         return view('admin.menu-update', compact('menu'));
     }
 
-   
-     // Method to update the menu
-     public function update(Request $request, $id)
-     {
+
+    // Method to update the menu
+    public function update(Request $request, $id)
+    {
         $menu = Menu::find($id);
 
         if (!$menu) {
@@ -139,7 +139,7 @@ class menuController extends Controller
             if ($menu->image) {
                 Storage::disk('public')->delete($menu->image);
             }
-            
+
             $image = $request->file('image');
             $path = $image->store('menu', 'public');
             $menu->image = $path;

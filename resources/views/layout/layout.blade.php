@@ -97,7 +97,8 @@
 <body>
     <header>
         <div>
-            <img src="{{asset('assets/img/mixue_logo.png')}}" alt="Mixue Logo" class="logo"> <!-- Replace with your logo path -->
+            <img src="{{ asset('assets/img/mixue_logo.png') }}" alt="Mixue Logo" class="logo">
+            <!-- Replace with your logo path -->
         </div>
         <nav>
             <ul>

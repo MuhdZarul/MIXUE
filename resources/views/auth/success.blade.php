@@ -59,10 +59,16 @@
             background-color: #73d876;
         }
 
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
         .icon img {
             width: 80px;
             height: 80px;
-            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -91,39 +97,3 @@
 </body>
 
 </html>
-
-
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Successful</title>
-    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
-{{-- @vite('resources/css/app.css')
-</head> --}}
-{{--
-<body>
-    <div class="container mx-auto max-w-md p-8">
-        <div class="header text-center">
-            <h2 class="text-3xl font-bold">Congratulations!</h2>
-        </div>
-        <div class="message mt-8 p-4 bg-green-100 text-green-600 rounded-lg">
-            <p>You have successfully registered.</p>
-        </div>
-        <div class="body mt-6 text-center">
-            <p>Thank you for registering. You can now log in to your account.</p>
-        </div>
-        <div class="actions mt-8">
-            <a href="{{ route('login') }}"
-                class="btn bg-blue-500 text-white px-6 py-3 rounded-full text-lg block mx-auto">Log In</a>
-            <a href="{{ route('dashboard') }}"
-                class="btn bg-blue-500 text-white px-6 py-3 rounded-full text-lg block mx-auto">Dashboard</a>
-            <a href="{{ route('menu.index') }}"
-                class="btn bg-blue-500 text-white px-6 py-3 rounded-full text-lg block mx-auto">Menu</a>
-        </div>
-    </div>
-</body>
-
-</html> --}}
