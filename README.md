@@ -106,14 +106,14 @@ D: Remove delivery records if necessary
 
 # Screen Captured of Project System
 ### Menu Page
-![Alt text](images/Final_MixueMenu.png))
+![Alt text](images/Final_MixueMenu.png)
 
 ### Admin Page
 #### Add Menu
-![Alt text](images/Final_AddMenu.png))
+![Alt text](images/Final_AddMenu.png)
 #### Edit Menu
-![Alt text](images/Final_EditMenu.png))
+![Alt text](images/Final_EditMenu.png)
 #### Delete Menu
-![Alt text](images/Final_DeleteMenu.png))
+![Alt text](images/Final_DeleteMenu.png)
 
 # Challenge and Difficulties to Develop the Application
