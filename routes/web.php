@@ -86,6 +86,14 @@ Route::get('profile', function () {
 Route::get('/admin', function () {
     return view('admin.adminPage');
 })->name('admin');
+// // Admin Login Route
+// Route::get('/adminlogin', function () {
+//     return view('adminlogin'); // Ensure this matches the location of your adminlogin.blade.php
+// })->name('adminlogin');
+// // Login routes for admin
+// Admin Login Routes
+Route::get('/adminlogin', [LoginController::class, 'showLoginForm'])->name('adminlogin.form'); // Show admin login form
+Route::post('/adminlogin', [LoginController::class, 'login'])->name('adminlogin.post');       // Handle admin login form submission
 
 Route::get('/menu', [menuController::class, 'index'])->name('menu.index');
 // Route::post('/menu/add-to-cart', [menuController::class, 'addToCart']);

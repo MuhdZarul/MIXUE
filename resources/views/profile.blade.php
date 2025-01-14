@@ -71,7 +71,7 @@
         <div class="container">
             <h1>Welcome! Choose Your Role</h1>
             <div class="buttons">
-                <a href="{{ route('admin') }}" class="button admin">Admin</a>
+                <a href="{{ route('adminlogin') }}" class="button admin">Admin</a>
                 <a href="{{ route('login') }}" class="button customer">Customer</a>
             </div>
         </div>
