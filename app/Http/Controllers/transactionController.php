@@ -4,150 +4,110 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use App\Models\User;
-use App\Models\Menu;
+use App\Models\Order;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class TransactionController extends Controller
 {
     protected $fillable = [
+        'transaction_id',
         'order_id',
-        'cust_id',
-    //    'food_id',
-    //    'food_price',
-        'cart_price',
+        'user_id',
+        'total_price',
         'delivery_id',
-        'order_status',
+        'status',
     ];
 
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function menu()
+    public function order()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo(Order::class, 'order_id');
     }
 
     public function delivery()
     {
-        return $this->belongsTo(Delivery::class);
+        return $this->belongsTo(Delivery::class, 'delivery_id');
     }
 
     public function index()
-    {
-        $transactions = Transaction::with(['user', 'menu', 'delivery'])->get();
-        $customers = User::all();
-        $menus = Menu::all();
-        $deliveries = Delivery::all();
+{
+    $transactions = Transaction::with(['order', 'delivery', 'user'])->get(); // Add user to eager load
+    $users = User::all();
+    $orders = Order::all();
+    $deliveries = Delivery::all();
 
-        return view('transaction', compact('transactions', 'customers', 'menus', 'deliveries'));
-    }
+    return view('transaction', compact('transactions', 'users', 'orders', 'deliveries'));
+}
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'cust_id' => 'required|exists:users,id',
-        //    'food_id' => 'required|exists:menus,food_id',
-        //    'food_price' => 'required|numeric',
-            'cart_price' => 'required|numeric',
-            'delivery_id' => 'required|exists:deliveries,delivery_id',
-            'order_status' => 'nullable|string',
-        ]);
-
-        //$order_id = 'ORD-' . strtoupper(uniqid());
-
-        Transaction::create([
-        //    'order_id' => $order_id,
-            'cust_id' => $request->cust_id,
-        //    'food_id' => $request->food_id,
-        //    'food_price' => $request->food_price,
-            'cart_price' => $request->cart_price,
-            'delivery_id' => $request->delivery_id,
-            'order_status' => $request->order_status,
-        ]);
-
-        return redirect()->route('transaction.index')->with('success', 'Transaction added successfully.');
-    }
-
-    //public function edit($order_id)
-    //{
-    //    $transaction = Transaction::findOrFail($order_id);
-    //    $customers = Customer::all();
-    //    $menus = Menu::all();
-    //    $deliveries = Delivery::all();
-
-    //    return view('admin.edit-transaction', compact('transaction', 'customers', 'foods', 'deliveries'));
-    //}
-
-    public function update(Request $request, $order_id)
-    {
-    // Validate the request
+public function store(Request $request)
+{
     $request->validate([
-        'order_status' => 'required|in:pending,completed,cancelled',
+        'user_id' => 'required|exists:users,id', // Validate user_id
+        'order_id' => 'required|exists:orders,id',
+        'total_price' => 'required|numeric',
+        'delivery_id' => 'required|exists:deliveries,id',
+        'status' => 'nullable|string',
     ]);
 
-    // Find the transaction by ID
-    $transaction = Transaction::findOrFail($order_id);
+    // Store the transaction including user_id
+    Transaction::create([
+        'user_id' => $request->user_id, // Store user_id
+        'order_id' => $request->order_id,
+        'total_price' => $request->total_price,
+        'delivery_id' => $request->delivery_id,
+        'status' => $request->status,
+    ]);
 
-    // Update the order_status field
-    $transaction->order_status = $request->order_status;
-    $transaction->save();
+    return redirect()->route('transaction.index')->with('success', 'Transaction added successfully.');
+}
 
-    // Redirect back with success message
-    return redirect()->route('transactions.index')->with('success', 'Order status updated successfully.');
+
+    public function update(Request $request, $transaction_id)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,completed,cancelled',
+        ]);
+
+        $transaction = Transaction::findOrFail($transaction_id);
+        $transaction->status = $request->status;
+        $transaction->save();
+
+        return redirect()->route('transaction.index')->with('success', 'Transaction updated successfully.');
     }
 
-
-    public function destroy($order_id)
+    public function destroy($transaction_id)
     {
-        $transaction = Transaction::findOrFail($order_id);
+        $transaction = Transaction::findOrFail($transaction_id);
         $transaction->delete();
 
         return redirect()->route('transaction.index')->with('success', 'Transaction deleted successfully.');
     }
 
     public function simpan(Request $request)
-{
-    // Creating a new transaction
-    $transaction = new Transaction();
-    $transaction->cust_id = $request->cust_id;
-    $transaction->cart_price = $request->cart_price;
-    $transaction->delivery_id = $request->delivery_id;
-    $transaction->order_status = $request->order_status;
-    $transaction->created_at = today();
-    $transaction->updated_at = today();
+    {
+        $request->validate([
+            'order_id' => 'required|exists:orders,id',
+            'total_price' => 'required|numeric',
+            'delivery_id' => 'required|exists:deliveries,id',
+            'status' => 'nullable|string',
+        ]);
 
-    // Save the transaction to the database
-    $transaction->save();
+        $transaction = new Transaction();
+        $transaction->order_id = $request->order_id;
+        $transaction->total_price = $request->total_price;
+        $transaction->delivery_id = $request->delivery_id;
+        $transaction->status = $request->status;
+        $transaction->created_at = now();
+        $transaction->updated_at = now();
+        $transaction->save();
 
-    // Redirect back to the transaction page with success message
-    return redirect()->route('transaction.index')->with('success', 'Transaction added successfully.');
-}
-
-
-
-
-
-    //public function transactions(Request $request)
-    //{
-    //    $query = DB::table('transactions');
-
-        // Filter by customer if provided
-    //    if ($request->has('cust_id') && $request->cust_id != '') {
-    //        $query->where('cust_id', $request->cust_id);
-    //    }
-
-        // Filter by order status if provided
-    //    if ($request->has('order_status') && $request->order_status != '') {
-    //        $query->where('order_status', $request->order_status);
-    //    }
-
-        // Retrieve filtered transactions
-    //    $transactions = $query->get();
-
-    //    return view('admin.transactions', compact('transactions'));
-    //}
+        return redirect()->route('transaction.index')->with('success', 'Transaction added successfully.');
+    }
 }

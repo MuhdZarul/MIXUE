@@ -12,19 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id('order_id');
-            //$table->string('order_id')->unique();
-            $table->unsignedBigInteger('cust_id'); // Foreign Key (customer)
-        //    $table->unsignedBigInteger('food_id'); // Foreign Key (food)
-        //    $table->decimal('food_price', 8, 2); // Food price in RM
-            $table->decimal('cart_price', 8, 2); // Cart price in RM
+            $table->id('transaction_id'); // Primary Key
+            $table->unsignedBigInteger('order_id'); // Foreign Key (order)
+            $table->unsignedBigInteger('user_id'); // Add user_id column
+            $table->decimal('total_price', 8, 2); // Total price in RM
             $table->unsignedBigInteger('delivery_id'); // Foreign Key (delivery)
-            $table->string('order_status');
+            $table->string('status'); // Status of the transaction (e.g., pending, completed, etc.)
             $table->timestamps();
 
-            $table->foreign('cust_id')->references('cust_id')->on('customers')->onDelete('cascade');
-        //    $table->foreign('food_id')->references('food_id')->on('menus')->onDelete('cascade');
-            $table->foreign('delivery_id')->references('delivery_id')->on('deliveries')->onDelete('cascade');
+            // Foreign Key Constraints
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Add foreign key constraint
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('delivery_id')->references('id')->on('deliveries')->onDelete('cascade');
         });
     }
 
