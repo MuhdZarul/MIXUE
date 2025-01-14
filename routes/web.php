@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
-<<<<<<< HEAD
+
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -17,15 +17,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 
-
-=======
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\transactionController;
->>>>>>> d845fa8db9b8b5cf0937a05a69935da80a9c6417
-
-/*
-|--------------------------------------------------------------------------
+/*-------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -149,16 +141,17 @@ Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name(
 
 //Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
 
-<<<<<<< HEAD
 
 Route::get('/login', function () {
-    return view('auth.login'); })->name('login');
-=======
-Route::get('/login', function () {return view('auth.login');})->name('login');
->>>>>>> d845fa8db9b8b5cf0937a05a69935da80a9c6417
+    return view('auth.login');
+})->name('login');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.post');
 Route::get('/register', function () {
-    return view('auth.register'); })->name('register');
+    return view('auth.register');
+})->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/dashboard', function () {
@@ -168,11 +161,6 @@ Route::get('/dashboard', function () {
 Route::get('/success', function () {
     return view('auth.success');
 })->name('success');
-<<<<<<< HEAD
-
-=======
->>>>>>> d845fa8db9b8b5cf0937a05a69935da80a9c6417
-
 
 
 //baru
@@ -188,9 +176,3 @@ Route::delete('/transaction/{order_id}', [transactionController::class, 'destroy
 Route::get('/add-transaction', function () {
     return view('add-transaction');
 });
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d845fa8db9b8b5cf0937a05a69935da80a9c6417
