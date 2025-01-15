@@ -130,6 +130,7 @@ Success Page acknowledge the user that their registration has suceed and allows 
 
 ### 3. Menu Page
 ![Alt text](images/Final_MixueMenu.png)
+This page displays a list of menus available to users. It includes menu images, descriptions, and prices. Users can select the menus they like by clicking the plus button at the bottom of each menu card.
 
 ### 4. Admin Page
 #### a. Add Menu
