@@ -104,18 +104,24 @@ D: Remove delivery records if necessary
 ### 1. Login Page
 #### a. Profile Page
 <img width="946" alt="profile page" src="https://github.com/user-attachments/assets/16b14652-0ed1-4347-974b-6608024c2b38" />
+These profile page is setup to allow user choose their role or as admin or customer.
 
 #### b. Customer Login
 <img width="947" alt="CUSTOMER LOGIN" src="https://github.com/user-attachments/assets/e2ad158f-740f-4121-89b5-00b2b34068a3" />
+This page authenticate and validate created user and redirect it to menu page after login confirmed.
 
 #### c. Admin Login
 <img width="947" alt="adminlogin" src="https://github.com/user-attachments/assets/7cb04453-9674-42cc-ad33-37a155c1c533" />
-
-#### d. Success Page
-<img width="950" alt="image" src="https://github.com/user-attachments/assets/987e31b2-13e7-4470-8e65-5ab6ae8f18ac" />
+Admin Login have different interface to differentiate the login between customer and admin. The login will redirect the admin to admin dashboard after authentication.
 
 ### 2. Register Page
+#### a. Register 
 <img width="946" alt="REGISTER" src="https://github.com/user-attachments/assets/5bc8b525-e7c7-4acb-a2a9-6ccd5845ce05" />
+Registration for users. Users need to enter their data and it will be stored in the database. Success registration will redirect the user to success page.
+
+#### b. Success Page
+<img width="950" alt="image" src="https://github.com/user-attachments/assets/987e31b2-13e7-4470-8e65-5ab6ae8f18ac" />
+Success Page acknowledge the user that their registration has suceed and allows user to continue login or choose between viewing their profile. 
 
 ### 3. Menu Page
 ![Alt text](images/Final_MixueMenu.png)
@@ -146,4 +152,7 @@ As this was our first time using GitHub, we faced challenges in connecting the L
 We encountered difficulties in connecting relationships between tables in the database due to differences in attribute names, particularly in tables with foreign key constraints. We resolved this by standardizing and aligning the attribute names.
 ### 3. Fear of Committing and Pushing Changes
 We also feel a little bit afraid to COMMIT & PUSH because we were worried it might affect the work of other group members. We managed to solve it by gradually building our confidence and ensuring proper testing and review before pushing changes.
+### 4. Unfamiliar with Jetstream and Live-wire Packages
+We learnt to do the form automatically but when we tried to edit for authentication it is harder because the files is not made by us. 
+While doing the authentication the role could not be setup for admin and customer due to migration problem.
 
