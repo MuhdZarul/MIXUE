@@ -135,10 +135,16 @@ This page displays a list of menus available to users. It includes menu images, 
 ### 4. Admin Page
 #### a. Add Menu
 ![Alt text](images/Final_AddMenu.png)
+In this page, admin can add new menu to the list. Only verified admin can view this page and fill out the form.
+
 #### b. Edit Menu
 ![Alt text](images/Final_EditMenu.png)
+The Edit Menu page allows admins to make any changes to the listed menus. By selecting the menu to edit, the page will then show a form for the admins to fill out about the attributes they wish to change.
+
 #### c. Delete Menu
 ![Alt text](images/Final_DeleteMenu.png)
+In this page, admins are given the right to delete menus that they wish to delete for reasons such as unavailability or discontinued products.
+
 #### d. View Transaction
 ![Alt text](images/Final_ViewTransaction.png)
 #### e. Add Transaction
