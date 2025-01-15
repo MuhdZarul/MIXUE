@@ -41,22 +41,17 @@ C: Admin adds a new product </br>
 R: Customer and admin can view menu items </br>
 U: Admin edits product details </br>
 D: Admin removes discontinued menu </br>
-### 3.Order management
-C: Customers place new orders </br>
-R: Customers and admin view order details </br>
-U: Admin updates order status </br>
-D: Customers cancel their orders before making confirmation
-### 4. Cart 
+### 3. Cart 
 C: Customers add items to their cart </br>
 R: Customers view cart contents </br>
 U: Customers update item quantities </br>
 D: Customers remove items from the cart
-### 5. Transaction
+### 4. Transaction
 C: Insert new transaction records when an order is placed </br>
 R: Admin can view transaction history </br>
 U: Admin modify existing transaction status </br>
 D: Remove transaction records if necessary 
-### 6. Delivery
+### 5. Delivery
 C: Record new delivery details when an order is scheduled for delivery </br>
 R: View delivery details </br>
 U: Update delivery status or details </br>
@@ -67,7 +62,7 @@ D: Remove delivery records if necessary
 ![food app drawio (1)](https://github.com/user-attachments/assets/9038ca9d-9a92-49ee-8e76-fe1e14c8933e)
 
 # Sequence Diagram
-![Alt text](images/seqDiagram.jpeg)
+![Alt text](images/Final_SeqDiagram.png)
 
 
 # Mock Up
@@ -115,15 +110,22 @@ D: Remove delivery records if necessary
 ![Alt text](images/Final_EditMenu.png)
 #### Delete Menu
 ![Alt text](images/Final_DeleteMenu.png)
-### Add to Cart
-![Alt text](images/AddtoCart.png)
 #### View Transaction
 ![Alt text](images/Final_ViewTransaction.png)
 #### Add Transaction
 ![Alt text](images/Final_AddTransaction.png)
 #### Edit Transaction
 ![Alt text](images/Final_EditTransaction.png)
-#### Delivery 
+### Add to Cart
+![Alt text](images/AddtoCart.png)
+### Delivery 
 ![Alt text](images/delivery.jpg)
 
 # Challenge and Difficulties to Develop the Application
+### 1. First-Time Use of GitHub
+This is our first time using GitHub, so it is a little bit challenging for us to connect the Laravel Project to the GitHub. We managed to solve it by learning through YouTube.
+### 2. Database Relationship Management
+We also have difficulties to connect relationship of tables in database due the attribute's name difference especially the table that have foreign key from other tables. We managed to solve it by aligning the name of attribute
+### 3. Fear of Committing and Pushing Changes
+We also feel a little bit afraid to COMMIT & PUSH because we were worried it might affect the work of other group members. We managed to solve it by gradually building our confidence and ensuring proper testing and review before pushing changes.
+
