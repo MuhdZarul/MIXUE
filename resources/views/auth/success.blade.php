@@ -18,7 +18,7 @@
         }
 
         .container {
-            max-width: 500px;
+            max-width: 380px;
             margin: 30px auto;
             background: #fff;
             padding: 10px;
@@ -93,6 +93,7 @@
         </div>
         <div class="body">
             <p>Thank you for registering. You can now log in to your account.</p>
+
         </div>
         <div class="actions">
             <a href="{{ route('login') }}">Log In</a>
