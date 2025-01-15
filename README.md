@@ -160,6 +160,7 @@ This page displays  the user's cart, which includes all the items they have adde
 
 ### 6. Delivery Page
 ![Alt text](images/delivery.jpg)
+This page is shown to the user after they place an order. It's help user to track their order status.
 
 # Challenge and Difficulties to Develop the Application
 ### 1. First-Time Use of GitHub
