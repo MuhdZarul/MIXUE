@@ -123,9 +123,9 @@ D: Remove delivery records if necessary
 
 # Challenge and Difficulties to Develop the Application
 ### 1. First-Time Use of GitHub
-This is our first time using GitHub, so it is a little bit challenging for us to connect the Laravel Project to the GitHub. We managed to solve it by learning through YouTube.
+As this was our first time using GitHub, we faced challenges in connecting the Laravel project to GitHub. We managed to overcome this by learning from YouTube tutorials and help from our friends.
 ### 2. Database Relationship Management
-We also have difficulties to connect relationship of tables in database due the attribute's name difference especially the table that have foreign key from other tables. We managed to solve it by aligning the name of attribute
+We encountered difficulties in connecting relationships between tables in the database due to differences in attribute names, particularly in tables with foreign key constraints. We resolved this by standardizing and aligning the attribute names.
 ### 3. Fear of Committing and Pushing Changes
 We also feel a little bit afraid to COMMIT & PUSH because we were worried it might affect the work of other group members. We managed to solve it by gradually building our confidence and ensuring proper testing and review before pushing changes.
 
