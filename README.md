@@ -115,6 +115,8 @@ D: Remove delivery records if necessary
 ![Alt text](images/Final_EditMenu.png)
 #### Delete Menu
 ![Alt text](images/Final_DeleteMenu.png)
+### Add to Cart
+![Alt text](images/AddtoCart.png)
 #### View Transaction
 ![Alt text](images/Final_ViewTransaction.png)
 #### Add Transaction
