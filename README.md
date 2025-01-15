@@ -2,7 +2,7 @@
 # Group Member
 1. MUHAMMAD ZARUL HAFIZZUDDIN BIN MOHD ZAIDI (2215331)
 2. NURDIYANA SHAHIRAH BINTI AZLAN (2210236)
-3. HAZIQ EMIR BIN  MOHSIN (2216379) hehe
+3. HAZIQ EMIR BIN  MOHSIN (2216379)
 4. AZWA NURNISYA BINTI AYUB (2217418)
 5. NOR AZREEN BINTI ASARI (2217638)
 
@@ -53,8 +53,8 @@ U: Customers update item quantities </br>
 D: Customers remove items from the cart
 ### 5. Transaction
 C: Insert new transaction records when an order is placed </br>
-R: Customers and admin can view transaction history </br>
-U: Admin modify existing transaction details </br>
+R: Admin can view transaction history </br>
+U: Admin modify existing transaction status </br>
 D: Remove transaction records if necessary 
 ### 6. Delivery
 C: Record new delivery details when an order is scheduled for delivery </br>
