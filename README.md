@@ -75,7 +75,7 @@ D: Remove delivery records if necessary
 ### 4. Home page
 ![Alt text](images/mixuehome.png)
 ### 5. Menu Page
-![Alt text](images/mixuemenu.png))
+![Alt text](images/mixuemenu.png)
 ### 6. Cart Page
 ![Alt text](images/mixuecart.png)
 ### 7. Payment Page
@@ -100,25 +100,30 @@ D: Remove delivery records if necessary
 # Final Report
 
 # Screen Captured of Project System
-### Menu Page
+### 1. Login Page
+
+### 2. Register Page
+
+### 3. Menu Page
 ![Alt text](images/Final_MixueMenu.png)
 
-### Admin Page
-#### Add Menu
+### 4. Admin Page
+#### a. Add Menu
 ![Alt text](images/Final_AddMenu.png)
-#### Edit Menu
+#### b. Edit Menu
 ![Alt text](images/Final_EditMenu.png)
-#### Delete Menu
+#### c. Delete Menu
 ![Alt text](images/Final_DeleteMenu.png)
-#### View Transaction
+#### d. View Transaction
 ![Alt text](images/Final_ViewTransaction.png)
-#### Add Transaction
+#### e. Add Transaction
 ![Alt text](images/Final_AddTransaction.png)
-#### Edit Transaction
+#### f. Edit Transaction
 ![Alt text](images/Final_EditTransaction.png)
-### Add to Cart
+
+### 5. Add to Cart Page
 ![Alt text](images/AddtoCart.png)
-### Delivery 
+### 6. Delivery Page
 ![Alt text](images/delivery.jpg)
 
 # Challenge and Difficulties to Develop the Application
