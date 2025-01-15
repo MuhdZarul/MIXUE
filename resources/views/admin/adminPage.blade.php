@@ -9,6 +9,7 @@
             <a href="{{ route('menu.create') }}" class="menu-button">Add Menu</a>
             <a href="{{ route('menu.edit') }}" class="menu-button">Update Menu</a>
             <a href="{{ route('menu.delete') }}" class="menu-button">Delete Menu</a>
+            <a href="{{ route('transaction.index') }}" class="menu-button">View Transaction</a>
         </div>
     </div>
 
