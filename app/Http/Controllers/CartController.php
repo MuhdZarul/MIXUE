@@ -38,7 +38,7 @@ class CartController extends Controller {
 
     return redirect()->route('cart.view')->with('success', 'Item added to cart!');
 }
-
+    //add item to cart
     public function update(Request $request) {
         $cart = session()->get('cart', []);
         $menuId = $request->input('menu_id');
@@ -54,7 +54,7 @@ class CartController extends Controller {
         session()->put('cart', $cart);
         return redirect()->route('cart.view');
     }
-
+    //utk remove item from cart
     public function remove(Request $request) {
         $cart = session()->get('cart', []);
         $menuId = $request->input('menu_id');

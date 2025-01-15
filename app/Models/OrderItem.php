@@ -9,7 +9,8 @@ class OrderItem extends Model {
     use HasFactory;
 
     // Allow mass assignment for these fields
-    protected $fillable = ['order_id', 'menu_id', 'quantity', 'price'];
+    //betulkn
+    protected $fillable = ['order_id', 'menu_id', 'quantity'];
 
     /**
      * Relationship: An OrderItem belongs to an Order.

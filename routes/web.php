@@ -123,15 +123,10 @@ Route::get('/cart/add', function () {
     return redirect()->route('menu.index'); // Redirect to menu if accessed via GET
 });
 
+//cartSummary
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 Route::get('/cart/summary', [OrderController::class, 'showCartSummary'])->name('cart.summary'); // Cart summary
 Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
-//Route::get('/orders/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
-Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
-
-
-
-//Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
 
 
 //Transaction punya
