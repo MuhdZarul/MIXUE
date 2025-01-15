@@ -4,13 +4,14 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\menuController;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\Auth\LoginController;
 
-use App\Http\Controllers\OrderController;
+
 
 // use App\Http\Controllers\transactionController;
 use Inertia\Inertia;
@@ -140,15 +141,10 @@ Route::get('/cart/add', function () {
     return redirect()->route('menu.index'); // Redirect to menu if accessed via GET
 });
 
+//cartSummary
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 Route::get('/cart/summary', [OrderController::class, 'showCartSummary'])->name('cart.summary'); // Cart summary
 Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
-//Route::get('/orders/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
-Route::post('/order/item/delete', [OrderController::class, 'deleteItem'])->name('order.item.delete');
-
-
-
-//Route::get('/order/transactions', [OrderController::class, 'transactions'])->name('order.transactions');
 
 
 Route::get('/login', function () {

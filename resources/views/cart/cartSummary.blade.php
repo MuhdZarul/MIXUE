@@ -64,13 +64,13 @@
     <div class="container">
         <h1>Cart Summary</h1>
 
-        @if($order && count($order->items) > 0)
+        @if($order && $order->items->count() > 0)
             <table class="cart-summary">
                 <thead>
                     <tr>
                         <th>Item</th>
-
                         <th>Quantity</th>
+                        <th>Price</th>
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -80,7 +80,8 @@
                         <tr>
                             <td>{{ $item->menu->name ?? 'Unknown' }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>RM {{ number_format($item->price * $item->quantity, 2) }}</td>
+                            <td>RM {{ number_format($item->menu->price, 2) }}</td>
+                            <td>RM {{ number_format($item->menu->price * $item->quantity, 2) }}</td>
                             <td>
                                 <form action="{{ route('order.item.delete') }}" method="POST">
                                     @csrf
@@ -90,9 +91,7 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
-
                 <tfoot>
                     <tr>
                         <td colspan="3" class="total">Subtotal</td>
@@ -104,17 +103,17 @@
                     </tr>
                     <tr>
                         <td colspan="3" class="total">Total</td>
-                        <td colspan="2">RM {{ number_format($order->total_price, 2) }}</td>
+                        <td colspan="2">RM {{ number_format($total, 2) }}</td>
                     </tr>
                 </tfoot>
-
             </table>
         @else
             <p>Your cart is empty.</p>
         @endif
+
         <div class="actions">
             <a href="{{ route('menu.index') }}"><button>Back to Menu</button></a>
-            <a href=><button>Payment</button></a>
+            <a href="#"><button>Payment</button></a>
         </div>
     </div>
 </body>

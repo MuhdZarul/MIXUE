@@ -7,8 +7,11 @@ use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller {
-    public function placeOrder() {
+    // untuk place ordr
+    public function placeOrder(Request $request) {
+
         $cart = session()->get('cart', []);
+
         if (empty($cart)) {
             return redirect()->route('cart.view')->with('error', 'Your cart is empty!');
         }
@@ -27,9 +30,8 @@ class OrderController extends Controller {
         // Create a new order
         $order = Order::create([
             'user_id' => auth()->id(),
-            'total_price' => $totalPrice, 
+            'total_price' => $totalPrice,
         ]);
-
 
         foreach ($cart as $menuId => $item) {
             OrderItem::create([
@@ -38,6 +40,7 @@ class OrderController extends Controller {
                 'quantity' => $item['quantity'],
 
             ]);
+
         }
 
         session()->forget('cart');
@@ -45,14 +48,15 @@ class OrderController extends Controller {
         return redirect()->route('cart.summary');
     }
 
-
     public function transactions() {
         $orders = Order::with('items')->where('user_id', auth()->id())->get(); // Retrieve orders for the authenticated user
         return view('orders.index', compact('orders'));
     }
 
-
+    //cart summary
     public function showCartSummary() {
+
+
 
         $order = Order::with('items.menu')
             ->where('user_id', auth()->id())
@@ -71,23 +75,20 @@ class OrderController extends Controller {
 
         $total = $subtotal + $deliveryFee;
 
+        ///sbb view/cart/cartSummary.blade.php
         return view('cart.cartSummary', compact('order', 'subtotal', 'deliveryFee', 'total'));
     }
-
 
     public function deleteItem(Request $request)
 {
 
     $itemId = $request->input('item_id');
 
-
     $item = OrderItem::find($itemId);
-
 
     if ($item) {
         // Delete the item from the database
         $item->delete();
-
 
         $order = Order::find($item->order_id);
         $order->total_price = $order->items->sum(function ($item) {
@@ -99,9 +100,7 @@ class OrderController extends Controller {
         return redirect()->route('cart.summary')->with('success', 'Item removed from cart.');
     }
 
-
     return redirect()->route('cart.summary')->with('error', 'Item not found.');
 }
-
 
 }

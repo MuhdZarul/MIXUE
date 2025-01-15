@@ -2,7 +2,7 @@
 # Group Member
 1. MUHAMMAD ZARUL HAFIZZUDDIN BIN MOHD ZAIDI (2215331)
 2. NURDIYANA SHAHIRAH BINTI AZLAN (2210236)
-3. HAZIQ EMIR BIN  MOHSIN (2216379) hehe
+3. HAZIQ EMIR BIN  MOHSIN (2216379)
 4. AZWA NURNISYA BINTI AYUB (2217418)
 5. NOR AZREEN BINTI ASARI (2217638)
 
@@ -41,22 +41,17 @@ C: Admin adds a new product </br>
 R: Customer and admin can view menu items </br>
 U: Admin edits product details </br>
 D: Admin removes discontinued menu </br>
-### 3.Order management
-C: Customers place new orders </br>
-R: Customers and admin view order details </br>
-U: Admin updates order status </br>
-D: Customers cancel their orders before making confirmation
-### 4. Cart 
+### 3. Cart 
 C: Customers add items to their cart </br>
 R: Customers view cart contents </br>
 U: Customers update item quantities </br>
 D: Customers remove items from the cart
-### 5. Transaction
+### 4. Transaction
 C: Insert new transaction records when an order is placed </br>
-R: Customers and admin can view transaction history </br>
-U: Admin modify existing transaction details </br>
+R: Admin can view transaction history </br>
+U: Admin modify existing transaction status </br>
 D: Remove transaction records if necessary 
-### 6. Delivery
+### 5. Delivery
 C: Record new delivery details when an order is scheduled for delivery </br>
 R: View delivery details </br>
 U: Update delivery status or details </br>
@@ -67,7 +62,7 @@ D: Remove delivery records if necessary
 ![food app drawio (1)](https://github.com/user-attachments/assets/9038ca9d-9a92-49ee-8e76-fe1e14c8933e)
 
 # Sequence Diagram
-![Alt text](images/seqDiagram.jpeg)
+![Alt text](images/Final_SeqDiagram.png)
 
 
 # Mock Up
@@ -80,7 +75,7 @@ D: Remove delivery records if necessary
 ### 4. Home page
 ![Alt text](images/mixuehome.png)
 ### 5. Menu Page
-![Alt text](images/mixuemenu.png))
+![Alt text](images/mixuemenu.png)
 ### 6. Cart Page
 ![Alt text](images/mixuecart.png)
 ### 7. Payment Page
@@ -105,21 +100,37 @@ D: Remove delivery records if necessary
 # Final Report
 
 # Screen Captured of Project System
-### Menu Page
+### 1. Login Page
+
+### 2. Register Page
+
+### 3. Menu Page
 ![Alt text](images/Final_MixueMenu.png)
 
-### Admin Page
-#### Add Menu
+### 4. Admin Page
+#### a. Add Menu
 ![Alt text](images/Final_AddMenu.png)
-#### Edit Menu
+#### b. Edit Menu
 ![Alt text](images/Final_EditMenu.png)
-#### Delete Menu
+#### c. Delete Menu
 ![Alt text](images/Final_DeleteMenu.png)
-#### View Transaction
+#### d. View Transaction
 ![Alt text](images/Final_ViewTransaction.png)
-#### Add Transaction
+#### e. Add Transaction
 ![Alt text](images/Final_AddTransaction.png)
-#### Edit Transaction
+#### f. Edit Transaction
 ![Alt text](images/Final_EditTransaction.png)
 
+### 5. Add to Cart Page
+![Alt text](images/AddtoCart.png)
+### 6. Delivery Page
+![Alt text](images/delivery.jpg)
+
 # Challenge and Difficulties to Develop the Application
+### 1. First-Time Use of GitHub
+As this was our first time using GitHub, we faced challenges in connecting the Laravel project to GitHub. We managed to overcome this by learning from YouTube tutorials and help from our friends.
+### 2. Database Relationship Management
+We encountered difficulties in connecting relationships between tables in the database due to differences in attribute names, particularly in tables with foreign key constraints. We resolved this by standardizing and aligning the attribute names.
+### 3. Fear of Committing and Pushing Changes
+We also feel a little bit afraid to COMMIT & PUSH because we were worried it might affect the work of other group members. We managed to solve it by gradually building our confidence and ensuring proper testing and review before pushing changes.
+
