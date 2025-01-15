@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\menuController;
 
 
@@ -11,7 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\Auth\LoginController;
 
-use App\Http\Controllers\OrderController;
+
 
 // use App\Http\Controllers\transactionController;
 use Inertia\Inertia;
