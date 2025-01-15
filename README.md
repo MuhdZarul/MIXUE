@@ -100,9 +100,19 @@ D: Remove delivery records if necessary
 # Final Report
 
 # Screen Captured of Project System
+
 ### 1. Login Page
+#### a. Profile Page
+<img width="946" alt="profile page" src="https://github.com/user-attachments/assets/16b14652-0ed1-4347-974b-6608024c2b38" />
+#### b. Customer Login
+<img width="947" alt="CUSTOMER LOGIN" src="https://github.com/user-attachments/assets/e2ad158f-740f-4121-89b5-00b2b34068a3" />
+#### c. Admin Login
+<img width="947" alt="adminlogin" src="https://github.com/user-attachments/assets/7cb04453-9674-42cc-ad33-37a155c1c533" />
+#### d. Success page
+<img width="950" alt="image" src="https://github.com/user-attachments/assets/987e31b2-13e7-4470-8e65-5ab6ae8f18ac" />
 
 ### 2. Register Page
+<img width="946" alt="REGISTER" src="https://github.com/user-attachments/assets/5bc8b525-e7c7-4acb-a2a9-6ccd5845ce05" />
 
 ### 3. Menu Page
 ![Alt text](images/Final_MixueMenu.png)
