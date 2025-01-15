@@ -105,7 +105,7 @@ D: Remove delivery records if necessary
 #### a. Profile Page
 <img width="946" alt="profile page" src="https://github.com/user-attachments/assets/16b14652-0ed1-4347-974b-6608024c2b38" />
 
-These profile page is setup to allow user choose their role or as admin or customer.
+This profile page is setup to allow user choose their role or as admin or customer.
 
 #### b. Customer Login
 <img width="947" alt="CUSTOMER LOGIN" src="https://github.com/user-attachments/assets/e2ad158f-740f-4121-89b5-00b2b34068a3" />
@@ -147,11 +147,13 @@ In this page, admins are given the right to delete menus that they wish to delet
 
 #### d. View Transaction
 ![Alt text](images/Final_ViewTransaction.png)
+This page is allows the admin to view the list of transactions and allows the admin to choose either to add, edit and delete transactions.
 #### e. Add Transaction
 ![Alt text](images/Final_AddTransaction.png)
+This page is showing a form for admin if they want to add new transactions.
 #### f. Edit Transaction
 ![Alt text](images/Final_EditTransaction.png)
-
+This page is helps admin to updating the status of the order.
 ### 5. Add to Cart Page
 ![Alt text](images/AddtoCart.png)
 This page displays  the user's cart, which includes all the items they have added from the menu. Users can easily modify the quantities of the items by increasing or decreasing the number of servings. There is an option to remove any item from the cart to allow users to make changes to their selections before proceeding to checkout.
