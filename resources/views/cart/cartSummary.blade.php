@@ -1,3 +1,4 @@
+
 @extends('layout.layout')
 
 @section('content')
@@ -65,23 +66,34 @@
         <h1>Cart Summary</h1>
 
         @if($order && $order->items->count() > 0)
+        @php
+            $cart = session('cart', []);  // Retrieve the cart data from session
+        @endphp
             <table class="cart-summary">
                 <thead>
                     <tr>
-                        <th>Item</th>
+                        <th>Food</th>
                         <th>Quantity</th>
-                        <th>Price</th>
+                        <th></th>
                         <th>Total</th>
+                        <th></th>
+                        <th></th>
+
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($order->items as $item)
                         <tr>
-                            <td>{{ $item->menu->name ?? 'Unknown' }}</td>
-                            <td>{{ $item->quantity }}</td>
-                            <td>RM {{ number_format($item->menu->price, 2) }}</td>
-                            <td>RM {{ number_format($item->menu->price * $item->quantity, 2) }}</td>
+                            <td>{{ $item->food_name }}</td>  <!-- Access food name directly -->
+                            <td>{{ $item->quantity }}</td>  <!-- Display quantity -->
+                            <td></td>
+
+                            <td>{{ $item->quantity * $item->price }}</td>
+                            <td></td>
+                            <td></td>
+
+                            <!-- Calculate the total price for the item -->
                             <td>
                                 <form action="{{ route('order.item.delete') }}" method="POST">
                                     @csrf

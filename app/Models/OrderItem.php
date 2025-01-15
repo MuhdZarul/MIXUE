@@ -10,7 +10,7 @@ class OrderItem extends Model {
 
     // Allow mass assignment for these fields
     //betulkn
-    protected $fillable = ['order_id', 'menu_id', 'quantity'];
+    protected $fillable = ['order_id', 'food_id', 'quantity'];
 
     /**
      * Relationship: An OrderItem belongs to an Order.
@@ -23,7 +23,7 @@ class OrderItem extends Model {
      * Relationship: An OrderItem belongs to a Menu item.
      */
     public function menu() {
-        return $this->belongsTo(Menu::class, 'menu_id');
+        return $this->belongsTo(Menu::class, 'food_id');
     }
 
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateOrdersTable extends Migration {
     public function up() {
         Schema::create('orders', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->default(0)->change();
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->decimal('total_price', 10, 2);

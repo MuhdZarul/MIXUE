@@ -15,6 +15,7 @@ class OrderController extends Controller {
         if (empty($cart)) {
             return redirect()->route('cart.view')->with('error', 'Your cart is empty!');
         }
+        //dd($cart);
 
         // Calculate the subtotal of the cart
         $subtotal = array_sum(array_map(function ($item) {
@@ -34,16 +35,18 @@ class OrderController extends Controller {
         ]);
 
         foreach ($cart as $menuId => $item) {
+            //dd($menuId);
             OrderItem::create([
                 'order_id' => $order->id,
-                'menu_id' => $menuId,
-                'quantity' => $item['quantity'],
+                'food_id' => $menuId,
+                'quantity' => (int) $item['quantity'],
+
 
             ]);
 
         }
 
-        session()->forget('cart');
+        //session()->forget('cart');
 
         return redirect()->route('cart.summary');
     }
@@ -56,28 +59,32 @@ class OrderController extends Controller {
     //cart summary
     public function showCartSummary() {
 
+            $order = Order::where('user_id', auth()->id())->latest()->first();
 
+            if (!$order) {
+                return redirect()->route('cart.view')->with('error', 'No order found!');
+            }
 
-        $order = Order::with('items.menu')
-            ->where('user_id', auth()->id())
-            ->latest()
-            ->first();
+            // Retrieve order items
+            $orderItems = $order->items;
 
-        if (!$order) {
-            return redirect()->route('cart.view')->with('error', 'No order found!');
+            // Calculate subtotal and other details
+            $subtotal = $orderItems->sum(function ($item) {
+                return $item->quantity * $item->menu->price;
+            });
+
+            $deliveryFee = 4;
+            $total = $subtotal + $deliveryFee;
+
+            return view('cart.cartSummary', compact('order', 'orderItems', 'subtotal', 'deliveryFee', 'total'));
         }
 
-        $subtotal = $order->items->sum(function($item) {
-            return $item->price * $item->quantity;
-        });
+            //dd($order);
+            //dd($order->items);
+            //foreach ($order->items as $item) {
+                //dd($item->food_id);  // Check if the menu data is being loaded
+            //}
 
-        $deliveryFee = 4;
-
-        $total = $subtotal + $deliveryFee;
-
-        ///sbb view/cart/cartSummary.blade.php
-        return view('cart.cartSummary', compact('order', 'subtotal', 'deliveryFee', 'total'));
-    }
 
     public function deleteItem(Request $request)
 {

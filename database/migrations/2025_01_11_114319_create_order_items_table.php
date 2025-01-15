@@ -9,12 +9,12 @@ class CreateOrderItemsTable extends Migration {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('menu_id');
+            $table->unsignedBigInteger('food_id')->nullable();
             $table->integer('quantity');
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->foreign('food_id')->references('id')->on('menus')->onDelete('cascade');
         });
     }
 

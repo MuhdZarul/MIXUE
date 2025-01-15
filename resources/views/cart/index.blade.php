@@ -213,7 +213,7 @@
         <thead>
             <tr>
                 <th>Food ID</th>
-                <th>Item</th>
+                <th>Food</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Action</th>
@@ -258,6 +258,9 @@
         <a href="{{ route('menu.index') }}"><button>Back</button></a>
         <form action="{{ route('order.place') }}" method="POST">
             @csrf
+            @foreach(session('cart') as $id => $details)
+                <input type="hidden" name="item_names[]" value="{{ $details['name'] }}">
+            @endforeach
             <button type="submit">Place Order</button>
         </form>
     </div>

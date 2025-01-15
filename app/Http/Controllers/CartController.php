@@ -63,7 +63,7 @@ class CartController extends Controller {
         session()->put('cart', $cart);
         return redirect()->route('cart.view');
     }
-
+    //tgk cart
     public function viewCart() {
         $cart = session()->get('cart', []);
         return view('cart.index', compact('cart'));

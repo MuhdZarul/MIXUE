@@ -21,7 +21,7 @@ class menuController extends Controller
     // Add item to cart
     public function addToCart(Request $request)
     {
-        $menuItemId = $request->input('menu_id');
+        $menuItemId = $request->input('food_id');
         $cart = Session::get('cart', []);
 
         if (isset($cart[$menuItemId])) {

@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('order_items', function (Blueprint $table) {
-            $table->unsignedBigInteger('menu_id')->nullable()->after('item_id');
+            $table->unsignedBigInteger('food_id')->nullable()->change();  // Change properties of the existing column if necessary
         });
-        // Copy the values from `item_id` to `menu_id`
-        \DB::statement('UPDATE order_items SET menu_id = item_id');
-    }
+
+        }
 
     /**
      * Reverse the migrations.
