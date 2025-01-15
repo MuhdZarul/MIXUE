@@ -1,3 +1,7 @@
+@extends('layout.layout')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,17 +12,19 @@
     @vite('resources/css/app.css')
     <style>
         body {
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             font-family: 'Arial', sans-serif;
+            justify-content: center;
         }
 
         .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 40px;
+            max-width: 500px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 10px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px #3104041a;
             text-align: center;
         }
 
@@ -97,3 +103,5 @@
 </body>
 
 </html>
+
+@endsection

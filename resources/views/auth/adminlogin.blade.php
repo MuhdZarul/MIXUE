@@ -33,7 +33,8 @@
 
         .right-side {
             width: 50%;
-            background-color: #ff0000;
+            border-radius: 10px;
+            background-color: #570606;
             padding: 20px;
             display: flex;
             justify-content: center;
@@ -108,7 +109,7 @@
         <!-- Right side with the form -->
         <div class="right-side">
             <div class="login-box">
-                <h1>LOGIN</h1>
+                <h1>ADMIN LOGIN</h1>
                 <form action="{{ route('adminlogin.post') }}" method="POST">
                     @csrf
                     <div class="input-group">
@@ -122,7 +123,7 @@
                     <button type="submit" class="login-btn">LOGIN</button>
                 </form>
                 <div class="register-link">
-                    Don’t have an account yet? <a href="{{ route('register') }}">Register for free.</a>
+                    New Here? <a href="{{ route('register') }}">Register Now.</a>
                 </div>
             </div>
         </div>

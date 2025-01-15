@@ -69,7 +69,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h2>Register</h2>
+            <h2>REGISTER</h2>
         </div>
 
         @if (session('success'))

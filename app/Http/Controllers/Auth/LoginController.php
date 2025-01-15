@@ -11,6 +11,10 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+    
+    public function loginAdmin(Request $request){
+        return view('auth.adminlogin');
+    }
 
     public function authenticate(Request $request)
     {
@@ -24,6 +28,26 @@ class LoginController extends Controller
         if (auth()->attempt($credentials)) {
             // Authentication passed, redirect to intended page
             return redirect()->route('menu.index'); // Change 'dashboard' to your desired route
+        }
+
+        // Authentication failed, redirect back with an error
+        return redirect()->back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
+    
+    public function authenticateAdmin(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (auth()->attempt($credentials)) {
+            // Authentication passed, redirect to intended page
+            return redirect()->route('admin'); // Change 'dashboard' to your desired route
         }
 
         // Authentication failed, redirect back with an error

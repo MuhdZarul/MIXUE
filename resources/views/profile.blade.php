@@ -22,6 +22,7 @@
             .container {
                 text-align: center;
                 background-color: #fff;
+                margin: 10%;
                 padding: 30px;
                 border-radius: 10px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -72,7 +73,7 @@
             <h1>Welcome! Choose Your Role</h1>
             <div class="buttons">
                 <a href="{{ route('login') }}" class="button customer">Customer</a>
-                <a href="{{ route('admin') }}" class="button admin">Admin</a>
+                <a href="{{ route('adminlogin.form') }}" class="button admin">Admin</a>
 
             </div>
         </div>

@@ -6,7 +6,6 @@ use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\menuController;
 
-
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\Auth\LoginController;
@@ -87,14 +86,15 @@ Route::get('profile', function () {
 Route::get('/admin', function () {
     return view('admin.adminPage');
 })->name('admin');
-// // Admin Login Route
-Route::get('/adminlogin', function () {
-    return view('auth.adminlogin'); // Ensure this matches the location of your adminlogin.blade.php
-})->name('adminlogin');
-// // Login routes for admin
+
+// Admin Login Route
+// Route::get('/adminlogin', function () {
+//     return view('auth.adminlogin');
+// })->name('adminlogin');
+// Login routes for admin
 // Admin Login Routes
-Route::get('/adminlogin', [LoginController::class, 'showLoginForm'])->name('adminlogin.form'); // Show admin login form
-Route::post('/adminlogin', [LoginController::class, 'login'])->name('adminlogin.post');       // Handle admin login form submission
+Route::get('/adminlogin', [LoginController::class, 'loginAdmin'])->name('adminlogin.form'); // Show admin login form
+Route::post('/adminlogin', [LoginController::class, 'authenticateAdmin'])->name('adminlogin.post');       // Handle admin login form submission
 
 Route::get('/menu', [menuController::class, 'index'])->name('menu.index');
 // Route::post('/menu/add-to-cart', [menuController::class, 'addToCart']);
