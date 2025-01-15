@@ -123,5 +123,7 @@ D: Remove delivery records if necessary
 ![Alt text](images/Final_AddTransaction.png)
 #### Edit Transaction
 ![Alt text](images/Final_EditTransaction.png)
+#### Delivery 
+![Alt text](images/delivery.jpg)
 
 # Challenge and Difficulties to Develop the Application
