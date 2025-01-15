@@ -147,6 +147,8 @@ Success Page acknowledge the user that their registration has suceed and allows 
 
 ### 5. Add to Cart Page
 ![Alt text](images/AddtoCart.png)
+This page displays  the user's cart, which includes all the items they have added from the menu. Users can easily modify the quantities of the items by increasing or decreasing the number of servings. There is an option to remove any item from the cart to allow users to make changes to their selections before proceeding to checkout.
+
 ### 6. Delivery Page
 ![Alt text](images/delivery.jpg)
 
